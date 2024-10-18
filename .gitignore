@@ -9,7 +9,6 @@
 .history
 .svn/
 .env
-l10n.yaml
 migrate_working_dir/
 
 # IntelliJ related
