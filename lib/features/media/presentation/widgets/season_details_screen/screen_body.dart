@@ -28,6 +28,7 @@ class SeasonDetailsScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
       slivers: [
         _SeasonScreenAppBar(airDate: airDate, posterPath: posterPath, seasonName: seasonName),
         const _SeasonOverview(),

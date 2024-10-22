@@ -60,6 +60,7 @@ class _AccountListScreenBodyState extends State<AccountListScreenBody> {
         }
       },
       builder: (BuildContext context, GetAccountListState state) => CustomScrollView(
+        scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
         controller: _scrollController,
         slivers: [
           if (state is GetAccountListSuccess && context.read<GetAccountListCubit>().mediaListResponse.mediaList.isEmpty)

@@ -54,6 +54,7 @@ class _SeeMoreMediaScreenBodyState extends State<SeeMoreMediaScreenBody> {
         }
       },
       builder: (BuildContext context, SeeMoreMediaState state) => CustomScrollView(
+        scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
         controller: _scrollController,
         slivers: [
           MediaVerticalList(
