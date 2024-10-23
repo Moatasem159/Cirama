@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:movies_app/core/api/api_result.dart';
 import 'package:movies_app/core/api/error_handler.dart';
 import 'package:movies_app/core/api/network_info.dart';
@@ -10,66 +11,85 @@ import 'package:movies_app/features/search/domain/entities/search_entity.dart';
 import 'package:movies_app/features/search/domain/entities/search_response.dart';
 import 'package:movies_app/features/search/domain/repositories/search_repository.dart';
 
+/// Implementation of the [SearchRepository] interface.
+/// This class handles search operations by communicating with
+/// local and remote data sources, managing search data,
+/// and providing error handling.
 class SearchRepositoryImpl implements SearchRepository {
-  final NetworkInfo _networkInfo;
-  final SearchRemoteDataSource _searchRemoteDataSource;
-  final SearchLocalDataSource _searchLocalDataSource;
+  final NetworkInfo _networkInfo; // To check network connectivity
+  final SearchRemoteDataSource _searchRemoteDataSource; // Remote data source for searching
+  final SearchLocalDataSource
+      _searchLocalDataSource; // Local data source for managing saved searches
+
   const SearchRepositoryImpl(
     this._networkInfo,
     this._searchRemoteDataSource,
     this._searchLocalDataSource,
   );
+
   @override
-  Future<ApiResult<SearchResponse>> search(String  query) async {
+  Future<ApiResult<SearchResponse>> search(String query, CancelToken cancelToken) async {
+    // Check network connectivity before making a remote search
     if (!(await _networkInfo.isConnected)) {
       return ApiResult.failure(ErrorHandler.handle(const NetworkException()));
     }
     try {
-      final SearchResponseModel response =
-          await _searchRemoteDataSource.search(query);
-      final SearchResponse result = SearchMapper.toSearchResponse(response);
-      return ApiResult.success(result);
+      // Fetch search results from remote data source
+      final SearchResponseModel response = await _searchRemoteDataSource.search(cancelToken, query);
+      final SearchResponse result =
+          SearchMapper.toSearchResponse(response); // Map response to domain model
+      return ApiResult.success(result); // Return success result
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error)); // Handle any errors that occur
     }
   }
+
   @override
-  ApiResult<List<SearchEntity>> getLocalSearch(){
+  ApiResult<List<SearchEntity>> getLocalSearch() {
     try {
-      final List<SearchModel> response =  _searchLocalDataSource.getAllSearch();
-      final List<SearchEntity> result = response.map((SearchModel e) => SearchMapper.toEntity(e)).toList();
-      return ApiResult.success(result);
+      // Retrieve all saved searches from the local data source
+      final List<SearchModel> response = _searchLocalDataSource.getAllSearch();
+      final List<SearchEntity> result = response
+          .map((SearchModel e) => SearchMapper.toEntity(e))
+          .toList(); // Map to domain entities
+      return ApiResult.success(result); // Return success result
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error)); // Handle any errors that occur
     }
   }
+
   @override
-  Future<ApiResult<void>> saveSearch(SearchEntity searchEntity) async{
+  Future<ApiResult<void>> saveSearch(SearchEntity searchEntity) async {
     try {
+      // Convert the domain entity to a model and save it locally
       SearchModel searchModel = SearchMapper.fromEntity(searchEntity);
-      final void response= await _searchLocalDataSource.saveSearch(searchModel);
-      return ApiResult.success(response);
+      final void response = await _searchLocalDataSource.saveSearch(searchModel);
+      return ApiResult.success(response); // Return success result
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error)); // Handle any errors that occur
     }
   }
+
   @override
-  Future<ApiResult<void>> deleteSearch(SearchEntity searchEntity)async {
+  Future<ApiResult<void>> deleteSearch(SearchEntity searchEntity) async {
     try {
+      // Convert the domain entity to a model and delete it from local storage
       SearchModel searchModel = SearchMapper.fromEntity(searchEntity);
-      final void response= await _searchLocalDataSource.deleteSearch(searchModel);
-      return ApiResult.success(response);
+      final void response = await _searchLocalDataSource.deleteSearch(searchModel);
+      return ApiResult.success(response); // Return success result
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error)); // Handle any errors that occur
     }
   }
+
   @override
-  Future<ApiResult<void>> clearAllSearch()async {
+  Future<ApiResult<void>> clearAllSearch() async {
     try {
-      final void response= await _searchLocalDataSource.clearAllSearch();
-      return ApiResult.success(response);
+      // Clear all saved searches from local storage
+      final void response = await _searchLocalDataSource.clearAllSearch();
+      return ApiResult.success(response); // Return success result
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ErrorHandler.handle(error)); // Handle any errors that occur
     }
   }
 }
