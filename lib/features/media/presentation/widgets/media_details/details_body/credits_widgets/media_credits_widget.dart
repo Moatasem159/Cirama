@@ -24,11 +24,6 @@ class CreditsBlocBuilder extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const VerticalSpace(6),
-              Text(
-                context.locale.credits,
-                style: context.titleMedium,
-              ),
-              const VerticalSpace(6),
               _CastList(
                 title: context.locale.cast,
                 cast: state.mediaDetails.credits.cast,
@@ -37,7 +32,6 @@ class CreditsBlocBuilder extends StatelessWidget {
                 title: context.locale.crew,
                 cast: state.mediaDetails.credits.crew,
               ),
-              const VerticalSpace(10),
             ],
           );
         }

@@ -20,12 +20,11 @@ class _CastList extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 2),
           child: Text(
             title,
-            style: context.labelMedium,
+            style: context.titleMedium,
           ),
         ),
         VerticalSpace(4),
         CreditsList(cast: cast),
-        VerticalSpace(4),
       ],
     );
   }
