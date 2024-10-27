@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+@lazySingleton
 class SharedPreferencesFactory {
   /// Removes a value from SharedPreferences with given [key].
   Future<bool> removeData(String key) async {

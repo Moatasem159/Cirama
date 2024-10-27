@@ -1,14 +1,17 @@
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/features/search/data/models/search_model.dart';
 
 /// A local data source class for managing search operations using Hive.
 /// This class provides methods for saving, deleting, retrieving, and clearing search models.
+@lazySingleton
 class SearchLocalDataSource {
-  /// The Hive box used to store search models.
-  final Box<SearchModel> _searchBox;
+  const SearchLocalDataSource();
 
-  /// Constructs a [SearchLocalDataSource] with the provided [searchBox].
-  const SearchLocalDataSource(this._searchBox);
+  /// Retrieves all saved search models from local storage.
+  ///
+  /// Returns a list of [SearchModel] objects stored in the Hive box.
+  List<SearchModel> get getAllSearch => Hive.box<SearchModel>("searchBox").values.toList();
 
   /// Saves a [SearchModel] to the local storage.
   ///
@@ -18,8 +21,9 @@ class SearchLocalDataSource {
   /// Parameters:
   /// - [searchModel]: The search model to save.
   Future<void> saveSearch(SearchModel searchModel) async {
-    if (!_searchBox.keys.any((element) => element == searchModel.id)) {
-      await _searchBox.put(searchModel.id, searchModel);
+    Box<SearchModel> searchBox = Hive.box<SearchModel>("searchBox");
+    if (!searchBox.keys.any((element) => element == searchModel.id)) {
+      await searchBox.put(searchModel.id, searchModel);
     }
   }
 
@@ -30,15 +34,10 @@ class SearchLocalDataSource {
   /// Parameters:
   /// - [searchModel]: The search model to delete.
   Future<void> deleteSearch(SearchModel searchModel) async =>
-      await _searchBox.delete(searchModel.id);
-
-  /// Retrieves all saved search models from local storage.
-  ///
-  /// Returns a list of [SearchModel] objects stored in the Hive box.
-  List<SearchModel> getAllSearch() => _searchBox.values.toList();
+      await Hive.box<SearchModel>("searchBox").delete(searchModel.id);
 
   /// Clears all search models from local storage.
   ///
   /// This method deletes all entries in the Hive box, removing all saved search models.
-  Future<void> clearAllSearch() async => _searchBox.clear();
+  Future<void> clearAllSearch() async => Hive.box<SearchModel>("searchBox").clear();
 }

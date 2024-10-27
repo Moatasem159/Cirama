@@ -47,7 +47,7 @@ class SearchRepositoryImpl implements SearchRepository {
   ApiResult<List<SearchEntity>> getLocalSearch() {
     try {
       // Retrieve all saved searches from the local data source
-      final List<SearchModel> response = _searchLocalDataSource.getAllSearch();
+      final List<SearchModel> response = _searchLocalDataSource.getAllSearch;
       final List<SearchEntity> result = response
           .map((SearchModel e) => SearchMapper.toEntity(e))
           .toList(); // Map to domain entities

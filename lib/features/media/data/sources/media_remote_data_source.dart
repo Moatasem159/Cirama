@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/api/message_model.dart';
 import 'package:movies_app/features/media/data/model/media_details_model.dart';
 import 'package:movies_app/features/media/data/model/media_list_response_model.dart';
@@ -6,9 +7,10 @@ import 'package:movies_app/features/media/data/model/tv_show_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'media_remote_data_source.g.dart';
-
+@lazySingleton
 @RestApi()
 abstract class MediaRemoteDataSource {
+  @factoryMethod
   factory MediaRemoteDataSource(Dio dio) = _MediaRemoteDataSource;
   @GET("getMediaList?mediaType={mediaType}&listType={listType}&page={page}")
   Future<MediaListResponseModel> getMediaList(

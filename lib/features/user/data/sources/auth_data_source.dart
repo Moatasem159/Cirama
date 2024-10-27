@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/api/message_model.dart';
 import 'package:movies_app/features/user/data/models/request_token_model.dart';
 import 'package:movies_app/features/user/data/models/session_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'auth_data_source.g.dart';
-
+@lazySingleton
 @RestApi()
 abstract class AuthDataSource {
+  @factoryMethod
   factory AuthDataSource(Dio dio) = _AuthDataSource;
 
   @GET("authentication/token/new")

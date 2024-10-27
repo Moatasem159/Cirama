@@ -6,7 +6,7 @@ import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setUpGetIt();
+  await setupConfiguration();
   runApp(
     Mo3Tv(
       theme: const AppTheme(),

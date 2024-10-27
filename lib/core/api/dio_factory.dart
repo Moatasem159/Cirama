@@ -1,30 +1,25 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/api/env.dart';
 import 'package:movies_app/core/utils/app_constant.dart';
 
-class DioFactory {
-  DioFactory._();
-
-  static Dio? dio;
-
-  static Dio getDio() {
+@module
+abstract class DioFactory {
+  @factoryMethod
+  Dio get createInstance{
     Duration timeOut = const Duration(seconds: 20);
-    if (dio == null) {
-      dio = Dio();
-      dio!
-        ..options.baseUrl = "https://api.themoviedb.org/3/"
-        ..options.headers = {"Content-Type": "application/json"}
-        ..options.sendTimeout = timeOut
-        ..options.connectTimeout = timeOut
-        ..options.receiveTimeout = timeOut
-        ..options.responseType = ResponseType.plain
-        ..options.receiveDataWhenStatusError = true
-        ..options.followRedirects = false
-        ..interceptors.add(CustomInterceptor());
-      return dio!;
-    } else {
-      return dio!;
-    }
+    final Dio dio = Dio();
+    dio
+      ..options.baseUrl = "https://api.themoviedb.org/3/"
+      ..options.headers = {"Content-Type": "application/json"}
+      ..options.sendTimeout = timeOut
+      ..options.connectTimeout = timeOut
+      ..options.receiveTimeout = timeOut
+      ..options.responseType = ResponseType.plain
+      ..options.receiveDataWhenStatusError = true
+      ..options.followRedirects = false
+      ..interceptors.add(CustomInterceptor());
+    return dio;
   }
 }
 
@@ -51,7 +46,6 @@ class CustomInterceptor implements Interceptor {
   void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     return handler.next(response);
   }
-
 
   void _checkListType(RequestOptions options) {
     if (options.uri.pathSegments.contains("getMediaList")) {

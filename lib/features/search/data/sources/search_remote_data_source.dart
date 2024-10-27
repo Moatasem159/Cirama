@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/features/search/data/models/search_response_model.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -6,10 +7,12 @@ part 'search_remote_data_source.g.dart';
 
 /// An abstract class that defines the remote data source for search operations.
 /// This class uses Retrofit to handle API calls related to search functionality.
+@lazySingleton
 @RestApi()
 abstract class SearchRemoteDataSource {
   /// A factory constructor that creates an instance of [SearchRemoteDataSource]
   /// using the provided [Dio] instance for making HTTP requests.
+  @factoryMethod
   factory SearchRemoteDataSource(Dio dio) = _SearchRemoteDataSource;
 
   /// Performs a search query against the remote API.

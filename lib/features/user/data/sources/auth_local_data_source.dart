@@ -1,7 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/storage/shared_preferences_factory.dart';
 import 'package:movies_app/features/user/data/models/session_model.dart';
 import 'package:movies_app/features/user/domain/entities/token.dart';
+@lazySingleton
 abstract class AuthLocalDataSource {
+  @factoryMethod
   const factory AuthLocalDataSource(SharedPreferencesFactory sharedPreferencesFactory) = _AuthLocalDataSourceImpl;
   Future<void> saveSessionId(Token token);
   Future<SessionModel> getSessionId();

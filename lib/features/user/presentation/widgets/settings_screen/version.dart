@@ -13,7 +13,7 @@ class Version extends StatelessWidget {
       children: [
         const VerticalSpace(10),
         Text("Cirama",style: context.titleMedium.copyWith(color: Colors.grey[700]!)),
-        Text("Version 1.0.1",style: context.titleSmall.copyWith(color: context.isDark?Colors.grey[800]!:Colors.grey[500]!)),
+        Text("Version 1.0.2",style: context.titleSmall.copyWith(color: context.isDark?Colors.grey[800]!:Colors.grey[500]!)),
         const VerticalSpace(10),
       ],
     );

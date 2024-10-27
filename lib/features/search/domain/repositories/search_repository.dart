@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/api/api_result.dart';
 import 'package:movies_app/core/api/network_info.dart';
 import 'package:movies_app/features/search/data/repositories/search_repository_impl.dart';
@@ -11,7 +12,9 @@ import 'package:movies_app/features/search/domain/entities/search_response.dart'
 /// This repository defines the methods required for search-related operations,
 /// including fetching search results, managing local search data, and saving
 /// or deleting searches.
+@lazySingleton
 abstract class SearchRepository {
+  @factoryMethod
   const factory SearchRepository(
     NetworkInfo networkInfo,
     SearchRemoteDataSource searchRemoteDataSource,
