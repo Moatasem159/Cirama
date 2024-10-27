@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/api/api_result.dart';
+import 'package:movies_app/core/api/network_info.dart';
+import 'package:movies_app/features/search/data/repositories/search_repository_impl.dart';
+import 'package:movies_app/features/search/data/sources/search_local_data_source.dart';
+import 'package:movies_app/features/search/data/sources/search_remote_data_source.dart';
 import 'package:movies_app/features/search/domain/entities/search_entity.dart';
 import 'package:movies_app/features/search/domain/entities/search_response.dart';
 
@@ -8,6 +12,12 @@ import 'package:movies_app/features/search/domain/entities/search_response.dart'
 /// including fetching search results, managing local search data, and saving
 /// or deleting searches.
 abstract class SearchRepository {
+  const factory SearchRepository(
+    NetworkInfo networkInfo,
+    SearchRemoteDataSource searchRemoteDataSource,
+    SearchLocalDataSource searchLocalDataSource,
+  ) = SearchRepositoryImpl;
+
   /// Searches for a specific query and returns a [SearchResponse].
   ///
   /// Takes in a [query] string that represents the search term and a

@@ -18,8 +18,7 @@ import 'package:movies_app/features/search/domain/repositories/search_repository
 class SearchRepositoryImpl implements SearchRepository {
   final NetworkInfo _networkInfo; // To check network connectivity
   final SearchRemoteDataSource _searchRemoteDataSource; // Remote data source for searching
-  final SearchLocalDataSource
-      _searchLocalDataSource; // Local data source for managing saved searches
+  final SearchLocalDataSource _searchLocalDataSource; // Local data source for managing saved searches
 
   const SearchRepositoryImpl(
     this._networkInfo,

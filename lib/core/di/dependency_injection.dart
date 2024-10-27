@@ -8,17 +8,13 @@ import 'package:movies_app/core/api/dio_factory.dart';
 import 'package:movies_app/core/api/network_info.dart';
 import 'package:movies_app/core/storage/shared_preferences_factory.dart';
 import 'package:movies_app/core/utils/app_constant.dart';
-import 'package:movies_app/features/media/data/repository/media_repository_imp.dart';
 import 'package:movies_app/features/media/data/sources/media_remote_data_source.dart';
 import 'package:movies_app/features/media/domain/repository/media_repository.dart';
 import 'package:movies_app/features/media/domain/usecase/get_media_list_usecase.dart';
 import 'package:movies_app/features/search/data/models/search_model.dart';
-import 'package:movies_app/features/search/data/repositories/search_repository_impl.dart';
 import 'package:movies_app/features/search/data/sources/search_local_data_source.dart';
 import 'package:movies_app/features/search/data/sources/search_remote_data_source.dart';
 import 'package:movies_app/features/search/domain/repositories/search_repository.dart';
-import 'package:movies_app/features/user/data/repositories/account_repository_impl.dart';
-import 'package:movies_app/features/user/data/repositories/auth_repository_impl.dart';
 import 'package:movies_app/features/user/data/sources/account_data_source.dart';
 import 'package:movies_app/features/user/data/sources/auth_data_source.dart';
 import 'package:movies_app/features/user/data/sources/auth_local_data_source.dart';
@@ -50,7 +46,7 @@ _setUpMedia() {
     ),
   );
   GetIt.I.registerLazySingleton<MediaRepository>(
-    () => MediaRepositoryImpl(
+    () => MediaRepository(
       GetIt.I.get<NetworkInfo>(),
       GetIt.I.get<MediaRemoteDataSource>(),
     ),
@@ -69,7 +65,7 @@ _setUpExtra() async {
     ),
   );
   GetIt.I.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(
+    () => NetworkInfo(
       GetIt.I.get<InternetConnectionChecker>(),
     ),
   );
@@ -96,12 +92,12 @@ _setUpAuth() async {
     ),
   );
   GetIt.I.registerLazySingleton<AuthLocalDataSource>(
-    () => AuthLocalDataSourceImpl(
+    () => AuthLocalDataSource(
       GetIt.I<SharedPreferencesFactory>(),
     ),
   );
   GetIt.I.registerLazySingleton<AuthRepository>(
-    () => AuthRepositoryImpl(
+    () => AuthRepository(
       GetIt.I.get<NetworkInfo>(),
       GetIt.I.get<AuthDataSource>(),
       GetIt.I.get<AuthLocalDataSource>(),
@@ -117,7 +113,7 @@ _setUpAccount() {
     ),
   );
   GetIt.I.registerLazySingleton<AccountRepository>(
-    () => AccountRepositoryImpl(
+    () => AccountRepository(
       GetIt.I.get<NetworkInfo>(),
       GetIt.I.get<AccountDataSource>(),
     ),
@@ -140,7 +136,7 @@ _setUpSearch() async {
     () => SearchLocalDataSource(GetIt.I.get<Box<SearchModel>>()),
   );
   GetIt.I.registerLazySingleton<SearchRepository>(
-    () => SearchRepositoryImpl(
+    () => SearchRepository(
       GetIt.I.get<NetworkInfo>(),
       GetIt.I.get<SearchRemoteDataSource>(),
       GetIt.I.get<SearchLocalDataSource>(),

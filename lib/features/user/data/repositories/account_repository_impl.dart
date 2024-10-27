@@ -10,7 +10,7 @@ class AccountRepositoryImpl implements AccountRepository {
   final NetworkInfo _networkInfo;
   final AccountDataSource _accountDataSource;
 
-  AccountRepositoryImpl(this._networkInfo, this._accountDataSource);
+ const AccountRepositoryImpl(this._networkInfo, this._accountDataSource);
 
   @override
   Future<ApiResult<AccountData>> getAccount() async {
