@@ -10,7 +10,7 @@ void main() async {
   runApp(
     Mo3Tv(
       theme: const AppTheme(),
-      appRouter: AppRouter(),
+      appRouter: const AppRouter(),
       appLocalizationsSetup: const AppLocalizationsSetup(),
     ),
   );

@@ -37,13 +37,10 @@ part 'movie_route.dart';
 part 'search_route.dart';
 part 'tv_shows_route.dart';
 part 'user_route.dart';
-
-
-
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
 class AppRouter {
-  final GoRouter router = GoRouter(
+  const AppRouter();
+  GoRouter get router => GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
     initialLocation: "/",
