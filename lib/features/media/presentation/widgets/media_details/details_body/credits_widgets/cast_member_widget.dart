@@ -14,6 +14,7 @@ class CastMemberWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 4),
         child: Column(
+          spacing: 4,
           children: [
             CachedNetworkImage(
               height: 60,
@@ -39,7 +40,6 @@ class CastMemberWidget extends StatelessWidget {
                 child: Icon(Icons.person),
               ),
             ),
-            VerticalSpace(4),
             Text(
               member.name,
               style: context.titleSmall.copyWith(

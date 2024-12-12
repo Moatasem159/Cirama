@@ -15,15 +15,15 @@ class _CastList extends StatelessWidget {
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 4,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 2),
+          padding: const EdgeInsets.only(left: 2,right: 2,top: 6),
           child: Text(
             title,
             style: context.titleMedium,
           ),
         ),
-        VerticalSpace(4),
         CreditsList(cast: cast),
       ],
     );

@@ -105,8 +105,6 @@ abstract class SearchMapper {
           releaseDate: entity.releaseDate,
           profilePath: entity.profilePath,
         );
-      default:
-        throw UnimplementedError("Unsupported media type");
     }
   }
 }

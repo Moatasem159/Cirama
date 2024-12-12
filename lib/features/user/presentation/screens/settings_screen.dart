@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/theme/app_theme.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/user/presentation/cubits/settings_cubit/settings_cubit.dart';
 import 'package:movies_app/features/user/presentation/widgets/custom_list_tile.dart';
 import 'package:movies_app/features/user/presentation/widgets/settings_screen/log_out_button.dart';
@@ -43,7 +42,6 @@ class SettingsScreen extends StatelessWidget {
                   subtitle: context.read<SettingsCubit>().getThemeModeName(context),
                 ),
               ),
-              VerticalSpace(10),
               LogOutButton(),
               Spacer(),
               Version(),

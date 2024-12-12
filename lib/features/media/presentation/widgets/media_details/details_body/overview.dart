@@ -47,19 +47,16 @@ class _Overview extends StatelessWidget {
     return Skeletonizer(
       enabled: enabled,
       child: Column(
+        spacing: 6,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           if (media.overview.isNotEmpty)...[
-            const VerticalSpace(6),
             Text(context.locale.summary, style: context.titleMedium),
-            const VerticalSpace(6),
             ReadMoreWidget(content: media.overview),
-            const VerticalSpace(6),
           ],
          if (media.voteCount > 20)...[
            _MediaRatingBar(media),
-           const VerticalSpace(10),
-         ]
+         ],
         ],
       ),
     );
@@ -74,6 +71,7 @@ class _MediaRatingBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Skeleton.ignore(
       child: Row(
+        spacing: 4,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
@@ -81,7 +79,6 @@ class _MediaRatingBar extends StatelessWidget {
             style: context.titleMedium
                 .copyWith(color: context.primaryColor, height: 1),
           ),
-          const HorizontalSpace(4),
           RatingBar(
             itemSize: 24,
             initialRating: media.voteAverage.toDouble() / 2,
@@ -97,7 +94,7 @@ class _MediaRatingBar extends StatelessWidget {
                 Icons.star_rate_rounded,
                 color: context.primaryColor,
               ),
-              empty: const Icon(Icons.star_border_rounded),
+              empty:  Icon(Icons.star_border_rounded,color: context.isDark?Colors.white:Colors.black,),
               half: Icon(
                 Icons.star_half_rounded,
                 color: context.primaryColor,
@@ -105,7 +102,6 @@ class _MediaRatingBar extends StatelessWidget {
             ),
             onRatingUpdate: (double value) {},
           ),
-          const HorizontalSpace(4),
           Text(
             media.getVoteCount(),
             style: context.titleMedium.copyWith(height: 1),

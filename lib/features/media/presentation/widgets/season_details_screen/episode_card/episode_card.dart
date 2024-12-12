@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/utils/image_url.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/tv.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -23,12 +22,11 @@ class EpisodeCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
+          spacing: 5,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _EpisodeImage(image: episode.stillPath),
-            VerticalSpace(5),
             _EpisodeInfo(episode: episode),
-            VerticalSpace(5),
           ],
         ),
       ),

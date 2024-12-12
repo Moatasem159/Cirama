@@ -15,6 +15,7 @@ class _MediaProductionCompany extends StatelessWidget {
         border: Border.all(color: context.primaryColor),
       ),
       child: Row(
+        spacing: 6,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CachedNetworkImage(
@@ -45,7 +46,6 @@ class _MediaProductionCompany extends StatelessWidget {
               child: Icon(Icons.error_outline_rounded),
             ),
           ),
-          HorizontalSpace(6),
           Text(
             company.name,
             style: context.labelMedium,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/widgets/custom_dialog.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/user/presentation/cubits/settings_cubit/settings_cubit.dart';
 class LanguageBottomSheet extends StatelessWidget {
   const LanguageBottomSheet({super.key});
@@ -11,6 +10,7 @@ class LanguageBottomSheet extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Column(
+        spacing: 6,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -21,7 +21,6 @@ class LanguageBottomSheet extends StatelessWidget {
               style: context.titleMedium.copyWith(fontWeight: FontWeight.w400),
             ),
           ),
-          const VerticalSpace(6),
           Divider(),
           CheckboxListTile.adaptive(
             title: Text(context.locale.english),
@@ -39,7 +38,6 @@ class LanguageBottomSheet extends StatelessWidget {
               }
             },
           ),
-          const VerticalSpace(6),
           CheckboxListTile.adaptive(
             title: Text(context.locale.arabic),
             value: context.read<SettingsCubit>().isArabic(),

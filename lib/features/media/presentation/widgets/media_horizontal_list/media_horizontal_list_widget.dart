@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/routing/app_router.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media_enums.dart';
 import 'package:movies_app/features/media/domain/entity/media_list_item.dart';
 import 'package:movies_app/features/media/domain/entity/media_list_response.dart';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/extensions/context_extension.dart';
+
 class MainButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
@@ -26,9 +28,13 @@ class MainButton extends StatelessWidget {
       child: icon == null
           ? Text(title)
           : Row(
+              spacing: 2,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon),
+                Icon(
+                  icon,
+                  color: context.theme.iconTheme.color,
+                ),
                 Text(title),
               ],
             ),

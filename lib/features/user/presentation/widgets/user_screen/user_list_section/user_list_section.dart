@@ -34,9 +34,9 @@ class UserListSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
+        spacing: 16,
         children: [
           _SectionTitle(sectionTitle),
-          VerticalSpace(16),
           _SectionData(
             icon: icon,
             iconColor: iconColor,

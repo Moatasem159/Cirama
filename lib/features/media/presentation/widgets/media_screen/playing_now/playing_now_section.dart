@@ -18,8 +18,8 @@ class _PlayingNowSection extends StatelessWidget {
       enabled: enabled,
       child: SliverToBoxAdapter(
         child: Column(
+          spacing: 10,
           children: [
-            const VerticalSpace(10),
             ListTitle(
               title: context.locale.listType(listType.title),
               onPressed: () {
@@ -31,9 +31,7 @@ class _PlayingNowSection extends StatelessWidget {
                 }
               },
             ),
-            const VerticalSpace(10),
             _CarouselBuilder(mediaListResponse.mediaList),
-            const VerticalSpace(10),
           ],
         ),
       ),

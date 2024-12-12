@@ -19,6 +19,7 @@ class MediaHorizontalList extends StatelessWidget {
       enabled: enabled,
       child: SliverToBoxAdapter(
         child: Column(
+          spacing: 10,
           children: [
             ListTitle(
               title: context.locale.listType(listType.title),
@@ -37,7 +38,6 @@ class MediaHorizontalList extends StatelessWidget {
                 }
               },
             ),
-            const VerticalSpace(10),
             SizedBox(
               height: 200,
               child: ListView.builder(
@@ -51,7 +51,6 @@ class MediaHorizontalList extends StatelessWidget {
                 ),
               ),
             ),
-            const VerticalSpace(10),
           ],
         ),
       ),

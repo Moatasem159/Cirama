@@ -17,7 +17,6 @@ class _EmptyBody extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                VerticalSpace(4),
                 Text(context.locale.noResults, style: context.titleMedium),
               ],
             ),

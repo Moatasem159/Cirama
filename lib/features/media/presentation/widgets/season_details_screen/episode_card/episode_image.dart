@@ -23,7 +23,7 @@ class _EpisodeImage extends StatelessWidget {
           height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withAlpha((0.5 * 255).toInt()),
           ),
           child: Icon(Icons.error_outline_rounded),
         ),

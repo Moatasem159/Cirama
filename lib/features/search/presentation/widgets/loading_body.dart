@@ -18,7 +18,6 @@ class _SearchLoadingBody extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                VerticalSpace(8),
                 CustomLoading(),
               ],
             ),

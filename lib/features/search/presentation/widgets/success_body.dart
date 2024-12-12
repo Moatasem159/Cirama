@@ -79,7 +79,7 @@ class _MediaSearchItem extends StatelessWidget {
               ),
               errorWidget: (BuildContext context, String url, Object error) => Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withAlpha((0.5 * 255).toInt()),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Icon(Icons.error_outline_rounded),
@@ -89,6 +89,7 @@ class _MediaSearchItem extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Column(
+                  spacing: 4,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(media.getName(),
@@ -97,19 +98,17 @@ class _MediaSearchItem extends StatelessWidget {
                         height: 1.5,
                       ),
                     ),
-                    if (media.overview.isNotEmpty) ...[
-                      const VerticalSpace(4),
+                    if (media.overview.isNotEmpty)
                       Text(
-                        media.overview,
-                        style: context.labelMedium.copyWith(
-                          fontWeight: FontWeight.normal,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      media.overview,
+                      style: context.labelMedium.copyWith(
+                        fontWeight: FontWeight.normal,
                       ),
-                      const VerticalSpace(4),
-                    ],
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     Row(
+                      spacing: 4,
                       children: [
                         Text(
                           context.locale.inMedia(media.mediaType.name),
@@ -117,7 +116,6 @@ class _MediaSearchItem extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const HorizontalSpace(4),
                         Icon(
                           media.mediaType == SearchType.movie
                               ? Icons.movie_filter_rounded

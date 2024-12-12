@@ -4,11 +4,12 @@ import 'package:movies_app/core/di/dependency_injection.dart';
 import 'package:movies_app/core/l10n/app_localizations_setup.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/theme/app_theme.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupConfiguration();
   runApp(
-    Mo3Tv(
+    Cirama(
       theme: const AppTheme(),
       appRouter: const AppRouter(),
       appLocalizationsSetup: const AppLocalizationsSetup(),

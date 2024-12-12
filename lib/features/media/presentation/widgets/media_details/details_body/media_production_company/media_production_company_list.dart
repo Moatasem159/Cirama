@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/utils/image_url.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media.dart';
 import 'package:movies_app/features/media/presentation/cubits/get_media_details/get_media_detail_cubit.dart';
 import 'package:movies_app/features/media/presentation/widgets/media_details/details_body/custom_expansion_tile.dart';
@@ -52,7 +51,7 @@ class ProductionCompanyList extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: networks.length,
-            itemBuilder: (context, index) =>
+            itemBuilder: (BuildContext context, int index) =>
                 _MediaProductionCompany(company: networks[index]),
           ),
         ),

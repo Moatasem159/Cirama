@@ -7,13 +7,16 @@ class _KeywordListBlocBuilder extends StatelessWidget {
       buildWhen: _shouldRebuild,
       builder: (BuildContext context, GetMediaDetailState state) {
         if (state is GetMediaDetailSuccess) {
-          return Wrap(
-            crossAxisAlignment: WrapCrossAlignment.start,
-            spacing: 6,
-            runSpacing: 6,
-            children: state.mediaDetails.keywords
-                .map((Keyword e) => _KeywordWidget(keyword: e))
-                .toList(),
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.start,
+              spacing: 6,
+              runSpacing: 8,
+              children: state.mediaDetails.keywords
+                  .map((Keyword e) => _KeywordWidget(keyword: e))
+                  .toList(),
+            ),
           );
         }
         return const SizedBox.shrink();

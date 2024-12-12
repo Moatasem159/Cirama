@@ -50,7 +50,7 @@ class _SeasonOverviewWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Column(
             children: [
-              VerticalSpace(10),
+
               Text(overview),
             ],
           ),

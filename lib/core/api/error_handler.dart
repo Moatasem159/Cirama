@@ -34,8 +34,6 @@ class ErrorHandler {
         return const MessageModel(ErrorMassages.connectionError);
       case DioExceptionType.unknown:
         return const MessageModel(ErrorMassages.unKnownError);
-      default:
-        return const MessageModel(ErrorMassages.defaultError);
     }
   }
 }

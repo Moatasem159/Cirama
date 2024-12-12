@@ -7,7 +7,6 @@ import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/utils/image_url.dart';
 import 'package:movies_app/core/widgets/main_button.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media.dart';
 import 'package:movies_app/features/media/domain/entity/media_enums.dart';
 import 'package:movies_app/features/media/domain/entity/media_list_item.dart';

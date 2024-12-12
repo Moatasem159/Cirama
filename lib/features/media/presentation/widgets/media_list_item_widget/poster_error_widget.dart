@@ -11,7 +11,7 @@ class PosterErrorWidget extends StatelessWidget {
       width: 130,
       height: 200,
       decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.5),
+        color: Colors.grey.withAlpha((0.5 * 255).toInt()),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Icon(Icons.error_outline_rounded),

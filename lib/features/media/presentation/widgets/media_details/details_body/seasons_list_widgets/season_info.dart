@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/tv.dart';
 
 class SeasonInfo extends StatelessWidget {
@@ -12,9 +11,11 @@ class SeasonInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 130,
+      padding: EdgeInsets.symmetric(horizontal: 2),
       decoration: const BoxDecoration(
           color: Colors.black54, borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))),
       child: Column(
+        spacing: 5,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
@@ -39,7 +40,6 @@ class SeasonInfo extends StatelessWidget {
             ),
             textScaler: TextScaler.linear(context.screenWidth / 370),
           ),
-          const VerticalSpace(5),
         ],
       ),
     );

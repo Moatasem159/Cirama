@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/utils/image_url.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media.dart';
 import 'package:movies_app/features/media/presentation/cubits/get_media_details/get_media_detail_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -36,13 +35,13 @@ class _GalleryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(context.locale.gallery, style: context.titleMedium),
         _GalleryImageList(images: gallery.backdrops, imageType: ImageType.backdrops),
         _GalleryImageList(images: gallery.posters, imageType: ImageType.posters),
         _GalleryImageList(images: gallery.logos, imageType: ImageType.logos),
-        const VerticalSpace(10),
       ],
     );
   }

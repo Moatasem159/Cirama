@@ -12,12 +12,12 @@ class _EpisodeInfo extends StatelessWidget {
       children: [
         if (episode.name != "Episode ${episode.episodeNumber}")
           Row(
+            spacing: 6,
             children: [
               Text(
                 "Episode ${episode.episodeNumber}",
                 style: context.titleMedium,
               ),
-              HorizontalSpace(6),
               Text(
                 episode.getRuntime(),
                 style: context.titleSmall.copyWith(
@@ -46,7 +46,6 @@ class _EpisodeInfo extends StatelessWidget {
               fontWeight: FontWeight.normal,
             ),
           ),
-        VerticalSpace(4),
         Text(
           episode.overview,
           style: context.titleSmall.copyWith(

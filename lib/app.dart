@@ -5,12 +5,12 @@ import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/theme/app_theme.dart';
 import 'package:movies_app/features/user/presentation/cubits/settings_cubit/settings_cubit.dart';
 
-class Mo3Tv extends StatelessWidget {
+class Cirama extends StatelessWidget {
   final AppTheme theme;
   final AppRouter appRouter;
   final AppLocalizationsSetup appLocalizationsSetup;
 
-  const Mo3Tv({
+  const Cirama({
     super.key,
     required this.appRouter,
     required this.theme,

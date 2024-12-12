@@ -59,6 +59,7 @@ class _MediaBasicInfo extends StatelessWidget {
       textBoneBorderRadius: TextBoneBorderRadius(BorderRadius.circular(6)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 6,
         children: [
           if (context.read<GetMediaDetailCubit>().listType != ListType.noMovieList &&
               context.read<GetMediaDetailCubit>().listType != ListType.noTvShowList &&
@@ -76,6 +77,7 @@ class _MediaBasicInfo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Row(
+                  spacing: 6,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
@@ -83,7 +85,6 @@ class _MediaBasicInfo extends StatelessWidget {
                       color: Colors.white,
                       size: context.read<GetMediaDetailCubit>().listType.iconSize,
                     ),
-                    const HorizontalSpace(6),
                     Text(
                       context.locale
                           .onMediaListType(context.read<GetMediaDetailCubit>().listType.title),
@@ -95,7 +96,6 @@ class _MediaBasicInfo extends StatelessWidget {
                 ),
               ),
             ),
-            const VerticalSpace(4),
           ],
           Text(
             media.name.isNotEmpty ? media.name : media.name,
@@ -106,8 +106,7 @@ class _MediaBasicInfo extends StatelessWidget {
             ),
             textScaler: TextScaler.linear(context.screenWidth / 380),
           ),
-          if (media.tagline.isNotEmpty) ...[
-            const VerticalSpace(6),
+          if (media.tagline.isNotEmpty)
             Text(
               media.tagline,
               style: context.titleSmall.copyWith(
@@ -117,8 +116,6 @@ class _MediaBasicInfo extends StatelessWidget {
               ),
               textScaler: TextScaler.linear(context.screenWidth / 380),
             ),
-          ],
-          const VerticalSpace(6),
           Text.rich(
             TextSpan(
               text: media.releaseDate.substring(0, 4),
@@ -133,7 +130,6 @@ class _MediaBasicInfo extends StatelessWidget {
               ],
             ),
           ),
-          VerticalSpace(4),
           _Info(title: context.locale.status, info: media.status),
           if (media is Movie) ...[
             _Info(title: context.locale.budget, info: (media as Movie).getBudget()),
@@ -141,10 +137,13 @@ class _MediaBasicInfo extends StatelessWidget {
           ],
           if (media is TvShow) ...[
             _Info(title: context.locale.type, info: (media as TvShow).type),
-            _Info(title: context.locale.numberOfSeasons, info:context.locale.seasons((media as TvShow).numberOfSeasons)),
-            _Info(title: context.locale.numberOfEpisodes, info:context.locale.episodes((media as TvShow).numberOfEpisodes)),
+            _Info(
+                title: context.locale.numberOfSeasons,
+                info: context.locale.seasons((media as TvShow).numberOfSeasons)),
+            _Info(
+                title: context.locale.numberOfEpisodes,
+                info: context.locale.episodes((media as TvShow).numberOfEpisodes)),
           ],
-          VerticalSpace(4),
         ],
       ),
     );
@@ -160,6 +159,7 @@ class _Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 5,
       children: [
         Text(
           "$title :",
@@ -168,7 +168,6 @@ class _Info extends StatelessWidget {
           ),
           textScaler: TextScaler.linear(context.screenWidth / 350),
         ),
-        HorizontalSpace(5),
         Text(
           info,
           style: context.titleSmall.copyWith(

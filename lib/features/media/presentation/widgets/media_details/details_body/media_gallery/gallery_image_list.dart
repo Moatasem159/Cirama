@@ -11,18 +11,13 @@ class _GalleryImageList extends StatelessWidget {
     if (images.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const VerticalSpace(6),
-          Text("${context.locale.imageTitle(imageType.name)} : ${images.length}", style: context.titleMedium),
-          const VerticalSpace(6),
-          _ImageList(images: images, imageType: imageType),
-          const VerticalSpace(6),
-        ],
-      ),
+    return Column(
+      spacing: 6,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("${context.locale.imageTitle(imageType.name)} : ${images.length}", style: context.titleMedium),
+        _ImageList(images: images, imageType: imageType),
+      ],
     );
   }
 }

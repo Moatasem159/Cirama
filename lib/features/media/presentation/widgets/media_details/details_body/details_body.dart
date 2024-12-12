@@ -7,7 +7,6 @@ import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/widgets/main_button.dart';
 import 'package:movies_app/core/widgets/read_more_widget.dart';
 import 'package:movies_app/core/widgets/snack_bar.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media.dart';
 import 'package:movies_app/features/media/domain/entity/media_details.dart';
 import 'package:movies_app/features/media/domain/entity/media_enums.dart';
@@ -44,7 +43,7 @@ class DetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
+      padding: const EdgeInsets.only(right: 10, left: 10, bottom: 20),
       child: CustomScrollView(
         scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
         physics: const NeverScrollableScrollPhysics(),
@@ -60,7 +59,6 @@ class DetailsBody extends StatelessWidget {
           const SliverToBoxAdapter(child: MediaRecommendationsBlocBuilder()),
           const SliverToBoxAdapter(child: MediaGalleryBlocBuilder()),
           const SliverToBoxAdapter(child: ProductionCompaniesBlocBuilder()),
-          const SliverVerticalSpace(10),
         ],
       ),
     );

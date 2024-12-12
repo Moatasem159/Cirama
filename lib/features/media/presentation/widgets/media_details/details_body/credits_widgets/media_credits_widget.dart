@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/utils/image_url.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/cast.dart';
 import 'package:movies_app/features/media/presentation/cubits/get_media_details/get_media_detail_cubit.dart';
 
@@ -23,7 +22,6 @@ class CreditsBlocBuilder extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const VerticalSpace(6),
               _CastList(
                 title: context.locale.cast,
                 cast: state.mediaDetails.credits.cast,

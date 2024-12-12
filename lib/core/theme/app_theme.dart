@@ -14,6 +14,9 @@ class AppTheme {
         colorScheme: ColorScheme.light().copyWith(
           secondary: AppColor.lightSecondaryBackground,
         ),
+        iconTheme: IconThemeData(
+          color: Colors.white
+        ),
         primaryColor: AppColor.primaryColor,
         scaffoldBackgroundColor: AppColor.lightScaffoldBackground,
         appBarTheme: const AppBarTheme(
@@ -82,6 +85,9 @@ class AppTheme {
         colorScheme: ColorScheme.dark().copyWith(
           secondary: AppColor.darkSecondaryBackground,
         ),
+    iconTheme: IconThemeData(
+        color: Colors.black
+    ),
         primaryColor: AppColor.primaryColor,
         scaffoldBackgroundColor: AppColor.darkScaffoldBackground,
         appBarTheme: const AppBarTheme(

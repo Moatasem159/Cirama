@@ -20,8 +20,8 @@ class SeasonPosterImage extends StatelessWidget {
           height: 200,
           fit: BoxFit.cover,
           imageUrl: ImageUrl.posterUrl(image??""),
-          placeholder: (context, url) => PosterPlaceholder(),
-          errorWidget: (context, url, error) =>PosterErrorWidget(),
+          placeholder: (BuildContext context, String url) => PosterPlaceholder(),
+          errorWidget: (BuildContext context, String url, Object error) =>PosterErrorWidget(),
         ),
       ),
     );

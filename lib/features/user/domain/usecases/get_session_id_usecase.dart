@@ -19,8 +19,6 @@ class GetSessionIdUsecase {
         }
       case ApiFailure<Token>():
         return '';
-      default:
-        return '';
     }
   }
 }

@@ -6,7 +6,6 @@ import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/utils/image_url.dart';
 import 'package:movies_app/core/widgets/custom_loading.dart';
 import 'package:movies_app/core/widgets/snack_bar.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/media_enums.dart';
 import 'package:movies_app/features/search/domain/entities/search_entity.dart';
 import 'package:movies_app/features/search/presentation/cubits/search_bloc/search_bloc.dart';

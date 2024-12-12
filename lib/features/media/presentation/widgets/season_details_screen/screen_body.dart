@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
 import 'package:movies_app/core/utils/image_url.dart';
 import 'package:movies_app/core/widgets/main_button.dart';
-import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/media/domain/entity/tv.dart';
 import 'package:movies_app/features/media/presentation/cubits/get_season_details/get_season_details_cubit.dart';
 import 'package:movies_app/features/media/presentation/widgets/season_details_screen/episode_card/episode_card.dart';

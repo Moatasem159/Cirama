@@ -23,10 +23,10 @@ class _ActionButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
         child: Row(
+          spacing: 5,
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(icon, color: iconColor, size: iconSize),
-            const HorizontalSpace(5),
             Text(title, style: context.titleMedium,textScaler: TextScaler.linear(context.screenWidth / 350),),
           ],
         ),

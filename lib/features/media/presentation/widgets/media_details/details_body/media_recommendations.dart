@@ -24,16 +24,17 @@ class _MediaRecommendations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           context.locale.recommendations,
           style: context.titleMedium,
         ),
-        VerticalSpace(8),
         SizedBox(
-          height: 200,
+          height: 210,
           child: ListView.builder(
+            padding: EdgeInsets.only(bottom: 10),
             itemCount: mediaListResponse.mediaList.length + 1,
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -51,7 +52,6 @@ class _MediaRecommendations extends StatelessWidget {
             },
           ),
         ),
-        VerticalSpace(18),
       ],
     );
   }

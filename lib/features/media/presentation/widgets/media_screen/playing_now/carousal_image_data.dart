@@ -26,13 +26,13 @@ class _CarousalImageData extends StatelessWidget {
               margin: margin,
               decoration: decoration,
               child: Row(
+                spacing: 4,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(media.getVoteAverage(),
                     style: context.titleSmall.copyWith(color: Colors.white),
                     textScaler: TextScaler.linear(context.screenWidth / 500),
                   ),
-                  const HorizontalSpace(4),
                   Icon(
                     Icons.star_rounded,
                     size: context.screenWidth / 25,
@@ -49,6 +49,7 @@ class _CarousalImageData extends StatelessWidget {
             margin: margin,
             decoration: decoration,
             child: Row(
+              spacing: 4,
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -60,7 +61,6 @@ class _CarousalImageData extends StatelessWidget {
                   ),
                   textScaler: TextScaler.linear(context.screenWidth / 590),
                 ),
-                const HorizontalSpace(4),
                 Icon(Icons.circle,
                     opticalSize: 12,
                     color: Colors.redAccent,
