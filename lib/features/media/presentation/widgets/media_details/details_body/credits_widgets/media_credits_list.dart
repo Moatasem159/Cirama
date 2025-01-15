@@ -1,16 +1,11 @@
 part of 'media_credits_widget.dart';
 class CreditsList extends StatelessWidget {
   final List<CastMember> cast;
-
-  const CreditsList({
-    super.key,
-    required this.cast,
-  });
-
+  const CreditsList({super.key, required this.cast});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 95,
+      height: context.screenHeight*0.13,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: cast.length,

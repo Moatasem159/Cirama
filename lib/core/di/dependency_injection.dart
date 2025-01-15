@@ -28,7 +28,7 @@ Future<void> _setUpHive() async {
 Future<void> _setupBloc() async {
   Bloc.observer = AppBlocObserver();
   HydratedBloc.storage =
-      await HydratedStorage.build(storageDirectory: await getApplicationDocumentsDirectory());
+      await HydratedStorage.build(storageDirectory:HydratedStorageDirectory((await getApplicationDocumentsDirectory()).path));
 }
 Future<void> _getSessionId() async {
   AppConstants.sessionId = await GetSessionIdUsecase(GetIt.I.get<AuthRepository>()).call();
