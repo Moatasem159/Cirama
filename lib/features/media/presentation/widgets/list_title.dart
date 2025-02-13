@@ -36,6 +36,7 @@ class ListTitle extends StatelessWidget {
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
+                      color: context.theme.textTheme.labelMedium!.color,
                       size: context.screenWidth / 30,
                       opticalSize: 15
                     )

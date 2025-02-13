@@ -8,7 +8,7 @@ import 'package:movies_app/features/media/presentation/widgets/media_screen/play
 class MediaScreen extends StatelessWidget {
   final MediaType mediaType;
 
-  const MediaScreen({super.key, required this.mediaType});
+  const MediaScreen({super.key,required this.mediaType});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +30,7 @@ class MediaScreen extends StatelessWidget {
         MediaHorizontalListWidget(
           listType: mediaType == MediaType.movie ? ListType.topRatedMovie : ListType.topRatedTvShow,
         ),
+        const SliverVerticalSpace(20),
       ],
     );
   }

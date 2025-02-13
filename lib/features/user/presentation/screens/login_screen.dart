@@ -9,9 +9,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   final String requestToken;
-
   const LoginScreen({super.key, required this.requestToken});
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -22,20 +20,23 @@ class _LoginScreenState extends State<LoginScreen> {
   double progress = 0;
 
   void clearWebViewData() {
-    controller..clearCache()..clearLocalStorage();
+    controller
+      ..clearCache()
+      ..clearLocalStorage();
     WebViewCookieManager().clearCookies();
   }
+
   @override
   void dispose() {
     controller.setNavigationDelegate(NavigationDelegate());
     super.dispose();
   }
+
   @override
   void initState() {
     super.initState();
     controller = WebViewController()
-      ..loadRequest(Uri.parse(
-          'https://www.themoviedb.org/authenticate/${widget.requestToken}'))
+      ..loadRequest(Uri.parse('https://www.themoviedb.org/authenticate/${widget.requestToken}'))
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(
         NavigationDelegate(
@@ -44,9 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 "https://www.themoviedb.org/authenticate/${widget.requestToken}/allow") {
               context.pop();
               clearWebViewData();
-              context
-                  .read<AuthCubit>()
-                  .getSessionId(requestToken: widget.requestToken);
+              context.read<AuthCubit>().getSessionId(requestToken: widget.requestToken);
             }
           },
           onNavigationRequest: (NavigationRequest request) {
@@ -71,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppTheme.systemUiOverlayStyle(context),
       child: PopScope(
-        canPop: false,
+        canPop: true,
         child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
@@ -81,9 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
           body: AnimatedSwitcher(
             duration: const Duration(milliseconds: 500),
             switchInCurve: Curves.easeIn,
-            child: isReady
-                ? WebViewWidget(controller: controller)
-                : loadingBody(progress),
+            child: isReady ? WebViewWidget(controller: controller) : loadingBody(progress),
           ),
         ),
       ),

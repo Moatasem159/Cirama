@@ -11,7 +11,7 @@ void main() async {
   runApp(
     Cirama(
       theme: const AppTheme(),
-      appRouter: const AppRouter(),
+      appRouter: AppRouter(),
       appLocalizationsSetup: const AppLocalizationsSetup(),
     ),
   );

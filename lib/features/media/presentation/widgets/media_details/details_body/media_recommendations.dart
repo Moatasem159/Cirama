@@ -42,10 +42,9 @@ class _MediaRecommendations extends StatelessWidget {
               if (index != mediaListResponse.mediaList.length) {
                 return MediaListItemWidget(
                   media: mediaListResponse.mediaList[index],
-                  listType: switch (context.read<GetMediaDetailCubit>().listType.mediaType) {
-                    MediaType.movie => ListType.noMovieList,
-                    MediaType.tv => ListType.noTvShowList,
-                  },
+                  listType: (context.read<GetMediaDetailCubit>().listType.mediaType == MediaType.movie)
+                      ? ListType.noMovieList
+                      : ListType.noTvShowList,
                 );
               }
               return SizedBox();

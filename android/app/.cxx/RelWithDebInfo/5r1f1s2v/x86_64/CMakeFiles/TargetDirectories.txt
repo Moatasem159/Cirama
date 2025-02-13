@@ -1,0 +1,2 @@
+D:/Education/Flutter projects/movies_app/android/app/.cxx/RelWithDebInfo/5r1f1s2v/x86_64/CMakeFiles/edit_cache.dir
+D:/Education/Flutter projects/movies_app/android/app/.cxx/RelWithDebInfo/5r1f1s2v/x86_64/CMakeFiles/rebuild_cache.dir

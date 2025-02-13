@@ -48,7 +48,6 @@ enum ListType {
     title: "top_rated",
     icon: Icons.star_rate_rounded,
   ),
-
   ratedMovies(
     mediaType: MediaType.movie,
     title: "rated",
@@ -81,7 +80,6 @@ enum ListType {
     mediaType: MediaType.tv,
     title: "no_tv_show_list",
   );
-
 
   final MediaType mediaType;
   final String title;

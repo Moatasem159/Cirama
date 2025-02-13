@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
-import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/theme/app_theme.dart';
 import 'package:movies_app/features/user/presentation/cubits/settings_cubit/settings_cubit.dart';
 import 'package:movies_app/features/user/presentation/widgets/custom_list_tile.dart';
@@ -27,7 +26,9 @@ class SettingsScreen extends StatelessWidget {
           body: Column(
             children: [
               CustomListTile(
-                onTap: () => ChangeLanguageRoute().push(context),
+                onTap: (){
+                  // ChangeLanguageRoute().push(context)
+                },
                 leading: Icon(Icons.language_rounded),
                 title: context.locale.language,
                 subtitle: context.read<SettingsCubit>().getLocalName(context),
@@ -36,7 +37,9 @@ class SettingsScreen extends StatelessWidget {
                 buildWhen: (SettingsState previous, SettingsState current) =>
                     previous.themeMode != current.themeMode,
                 builder: (BuildContext context, SettingsState state) => CustomListTile(
-                  onTap: () => ChangeThemeRoute().push(context),
+                  onTap: (){
+                    // ChangeThemeRoute().push(context)
+                  },
                   leading: Icon(Icons.color_lens_outlined),
                   title: context.locale.theme,
                   subtitle: context.read<SettingsCubit>().getThemeModeName(context),

@@ -14,7 +14,7 @@ class LoginButton extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (BuildContext context, AuthState state) {
         if (state is GetSessionIdSuccess) {
-          context.goNamed("movie");
+          context.push("/movie");
         }
         if (state is RequestTokenSuccess) {
           LoginRoute(requestToken: state.token.token,$extra: context.read<AuthCubit>()).push(context);

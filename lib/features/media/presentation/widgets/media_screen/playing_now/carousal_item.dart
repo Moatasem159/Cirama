@@ -8,20 +8,20 @@ class _CarousalItem extends StatelessWidget {
       replacement: const _CarousalPlaceholder(),
       child: GestureDetector(
         onTap: () {
-          switch (context.read<GetMediaListCubit>().params.mediaType) {
-            case MediaType.movie:
-              MediaDetailsRoute(
-                listType: context.read<GetMediaListCubit>().params.listType,
-                posterPath: media.posterPath,
-                mediaId: media.id.toString(),
-              ).push(context);
-            case MediaType.tv:
-              MediaDetailsRoute(
-                posterPath: media.posterPath,
-                listType: context.read<GetMediaListCubit>().params.listType,
-                mediaId: media.id.toString(),
-              ).push(context);
-          }
+          // switch (context.read<GetMediaListCubit>().params.mediaType) {
+          //   // case MediaType.movie:
+          //   //   MediaDetailsRoute(
+          //   //     listType: context.read<GetMediaListCubit>().params.listType,
+          //   //     posterPath: media.posterPath,
+          //   //     mediaId: media.id.toString(),
+          //   //   ).push(context);
+          //   // case MediaType.tv:
+          //   //   MediaDetailsRoute(
+          //   //     posterPath: media.posterPath,
+          //   //     listType: context.read<GetMediaListCubit>().params.listType,
+          //   //     mediaId: media.id.toString(),
+          //   //   ).push(context);
+          // }
         },
         child: CachedNetworkImage(
           imageUrl: ImageUrl.backDropsUrl(media.backdropPath),

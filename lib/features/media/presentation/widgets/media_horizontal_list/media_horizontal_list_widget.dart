@@ -54,7 +54,7 @@ class MediaHorizontalListWidget extends StatelessWidget {
                 mediaListResponse: state.media,
               );
             case GetMediaListError():
-              //TODO: add error ui
+            //TODO: add error ui
               return SliverToBoxAdapter(
                 child: Text(
                   context.locale.errorMessages(state.message),

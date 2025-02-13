@@ -26,16 +26,16 @@ class MediaDetailsScreen extends StatelessWidget {
       providers: [
         BlocProvider<GetMediaDetailCubit>(
           create: (BuildContext context) => GetMediaDetailCubit(
-            GetIt.I.get(),
-            MediaDetailsParams(mediaId: mediaId, mediaType: listType!.mediaType),
-            listType!
+              GetIt.I.get(),
+              MediaDetailsParams(mediaId: mediaId, mediaType: listType!.mediaType),
+              listType!
           )..getMediaDetails(),
         ),
         BlocProvider<MediaActionsBloc>(
           create: (context) => MediaActionsBloc(
-            GetIt.I.get(),
-            MediaDetailsParams(mediaId: mediaId,mediaType: listType!.mediaType),
-            listType!
+              GetIt.I.get(),
+              MediaDetailsParams(mediaId: mediaId,mediaType: listType!.mediaType),
+              listType!
           ),
         ),
       ],
