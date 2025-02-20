@@ -1,13 +1,9 @@
 part of 'app_router.dart';
-final GlobalKey<NavigatorState> movieNavigatorKey = GlobalKey<NavigatorState>();
 class MovieData extends StatefulShellBranchData {
   const MovieData();
-  static final GlobalKey<NavigatorState> $navigatorKey =movieNavigatorKey;
 }
-
 class MovieRouteData extends GoRouteData {
   const MovieRouteData();
-
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MediaScreen(
@@ -16,7 +12,6 @@ class MovieRouteData extends GoRouteData {
     );
   }
 }
-
 class SeeMoreMoviesRoute extends GoRouteData {
   final ListType? listType;
   final MediaListResponse $extra;

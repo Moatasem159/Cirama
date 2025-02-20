@@ -20,29 +20,17 @@ abstract class SearchMapper {
 
   static SearchEntity toEntity(SearchModel model) {
     switch (model.mediaType) {
-      case 'movie':
-        final MovieSearchModel movieModel = model as MovieSearchModel;
-        return MovieSearch(
-          overview: movieModel.overview,
-          backdropPath: movieModel.backdropPath,
-          id: movieModel.id,
-          mediaType: SearchType.movie,
-          name: movieModel.name,
-          originalName: movieModel.originalName,
-          releaseDate: movieModel.releaseDate,
-          profilePath: movieModel.profilePath,
-        );
-      case 'tv':
-        final TvSearchModel tvModel = model as TvSearchModel;
-        return TvSearch(
-          overview: tvModel.overview,
-          backdropPath: tvModel.backdropPath,
-          id: tvModel.id,
-          mediaType: SearchType.tv,
-          name: tvModel.name,
-          originalName: tvModel.originalName,
-          releaseDate: tvModel.releaseDate,
-          profilePath: tvModel.profilePath,
+      case 'movie'||"tv":
+        final MediaSearchModel mediaModel = model as MediaSearchModel;
+        return MediaSearch(
+          overview: mediaModel.overview,
+          backdropPath: mediaModel.backdropPath,
+          id: mediaModel.id,
+          mediaType: mediaModel.mediaType=="movie"?SearchType.movie:SearchType.tv,
+          name: mediaModel.name,
+          originalName: mediaModel.originalName,
+          releaseDate: mediaModel.releaseDate,
+          profilePath: mediaModel.profilePath,
         );
       case 'person':
         final PersonSearchModel personModel = model as PersonSearchModel;
@@ -72,23 +60,12 @@ abstract class SearchMapper {
 
   static SearchModel fromEntity(SearchEntity entity) {
     switch (entity.mediaType) {
-      case SearchType.movie:
-        return MovieSearchModel(
-          overview: (entity as MovieSearch).overview,
+      case SearchType.movie||SearchType.tv:
+        return MediaSearchModel(
+          overview: (entity as MediaSearch).overview,
           backdropPath: entity.backdropPath,
           id: entity.id,
-          mediaType: 'movie',
-          name: entity.name,
-          originalName: entity.originalName,
-          releaseDate: entity.releaseDate,
-          profilePath: entity.profilePath,
-        );
-      case SearchType.tv:
-        return TvSearchModel(
-          overview: (entity as TvSearch).overview,
-          backdropPath: entity.backdropPath,
-          id: entity.id,
-          mediaType: 'tv',
+          mediaType: entity.mediaType==SearchType.movie?"movie":"tv",
           name: entity.name,
           originalName: entity.originalName,
           releaseDate: entity.releaseDate,

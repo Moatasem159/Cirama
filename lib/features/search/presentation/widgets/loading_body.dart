@@ -18,7 +18,10 @@ class _SearchLoadingBody extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CustomLoading(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomLoading(),
+                ),
               ],
             ),
           );

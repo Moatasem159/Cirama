@@ -1,7 +1,7 @@
 name: movies_app
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.3
+version: 1.0.4
 environment:
   sdk: ^3.7.0
 dependencies:
@@ -81,7 +81,7 @@ dev_dependencies:
   # Injectable_generator is a convenient code generator for Injectable.
   injectable_generator: ^2.6.2
   # Customize Flutter's default native splash screen.
-  flutter_native_splash: ^2.4.4
+  flutter_native_splash: ^2.4.5
 flutter:
   generate: true
   uses-material-design: true

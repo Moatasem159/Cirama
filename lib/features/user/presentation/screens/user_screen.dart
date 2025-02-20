@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies_app/core/extensions/context_extension.dart';
+import 'package:movies_app/core/routing/app_router.dart';
 import 'package:movies_app/core/widgets/white_spacing.dart';
 import 'package:movies_app/features/user/presentation/cubits/get_account_data_cubit/get_account_data_cubit.dart';
 import 'package:movies_app/features/user/presentation/widgets/custom_list_tile.dart';
@@ -23,9 +24,7 @@ class UserScreen extends StatelessWidget {
             const AccountAppBar(),
             const VerticalSpace(10),
             CustomListTile(
-              onTap: (){
-                // SettingsRoute().push(context)
-              },
+              onTap: ()=>SettingsRoute().push(context),
               leading: Icon(Icons.settings_rounded),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
               title: context.locale.settings,

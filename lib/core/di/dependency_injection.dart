@@ -20,8 +20,7 @@ Future<void> setupConfiguration() async {
 }
 Future<void> _setUpHive() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(MovieSearchModelAdapter());
-  Hive.registerAdapter(TvSearchModelAdapter());
+  Hive.registerAdapter(MediaSearchModelAdapter());
   Hive.registerAdapter(PersonSearchModelAdapter());
   await Hive.openBox<SearchModel>("searchBox");
 }

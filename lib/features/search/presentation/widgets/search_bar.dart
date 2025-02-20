@@ -28,6 +28,7 @@ class _CustomSearchBarState extends State<_CustomSearchBar> {
             controller: _controller,
             leading: Icon(
               Icons.search_rounded,
+              color: context.theme.primaryColor,
             ),
             hintStyle: WidgetStatePropertyAll(
               context.labelMedium.copyWith(
@@ -42,6 +43,7 @@ class _CustomSearchBarState extends State<_CustomSearchBar> {
                   context.read<SearchBloc>().add(LocalSearch());
                 },
                 icon: Icon(Icons.clear_rounded),
+                color: context.theme.primaryColor,
               ),
             ],
             backgroundColor: WidgetStatePropertyAll(context.scaffoldBackgroundColor),

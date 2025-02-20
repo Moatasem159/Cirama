@@ -1,14 +1,9 @@
 part of 'app_router.dart';
-
 class TvData extends StatefulShellBranchData {
-  static final GlobalKey<NavigatorState> $navigatorKey = GlobalKey<NavigatorState>();
-
   const TvData();
 }
-
 class TvRouteData extends GoRouteData {
   const TvRouteData();
-
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return MediaScreen(
@@ -17,13 +12,10 @@ class TvRouteData extends GoRouteData {
     );
   }
 }
-
 class SeeMoreTvShowsRoute extends GoRouteData {
   final ListType? listType;
   final MediaListResponse $extra;
-
   const SeeMoreTvShowsRoute(this.$extra, {this.listType});
-
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return HorizontalSlide(

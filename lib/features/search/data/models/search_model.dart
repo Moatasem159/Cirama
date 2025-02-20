@@ -47,8 +47,9 @@ abstract class SearchModel {
     required this.profilePath,
   });
 }
-
-abstract class MediaSearchModel extends SearchModel {
+@HiveType(typeId: 0)
+@JsonSerializable(createToJson: false)
+class MediaSearchModel extends SearchModel {
   @HiveField(6)
   final String overview;
   @HiveField(7, defaultValue: "")
@@ -65,42 +66,8 @@ abstract class MediaSearchModel extends SearchModel {
     required super.releaseDate,
     required super.profilePath,
   });
+  factory MediaSearchModel.fromJson(Map<String, dynamic> json) => _$MediaSearchModelFromJson(json);
 }
-
-@HiveType(typeId: 0)
-@JsonSerializable(createToJson: false)
-class MovieSearchModel extends MediaSearchModel {
-  const MovieSearchModel({
-    required super.overview,
-    required super.backdropPath,
-    required super.id,
-    required super.mediaType,
-    required super.name,
-    required super.originalName,
-    required super.releaseDate,
-    required super.profilePath,
-  });
-
-  factory MovieSearchModel.fromJson(Map<String, dynamic> json) => _$MovieSearchModelFromJson(json);
-}
-
-@HiveType(typeId: 1)
-@JsonSerializable(createToJson: false)
-class TvSearchModel extends MediaSearchModel {
-  const TvSearchModel({
-    required super.overview,
-    required super.backdropPath,
-    required super.id,
-    required super.mediaType,
-    required super.name,
-    required super.originalName,
-    required super.releaseDate,
-    required super.profilePath,
-  });
-
-  factory TvSearchModel.fromJson(Map<String, dynamic> json) => _$TvSearchModelFromJson(json);
-}
-
 @HiveType(typeId: 2)
 @JsonSerializable(createToJson: false)
 class PersonSearchModel extends SearchModel {
@@ -132,11 +99,9 @@ class SearchModelConverter implements JsonConverter<SearchModel, Map<String, dyn
 
   @override
   SearchModel fromJson(Map<String, dynamic> json) {
-    if (json['media_type'] == "movie") {
-      return MovieSearchModel.fromJson(json);
-    } else if (json['media_type'] == "tv") {
-      return TvSearchModel.fromJson(json);
-    } else {
+    if (json['media_type'] == "movie"||json['media_type'] == "tv") {
+      return MediaSearchModel.fromJson(json);
+    }  else {
       return PersonSearchModel.fromJson(json);
     }
   }

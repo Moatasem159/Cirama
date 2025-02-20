@@ -1,4 +1,14 @@
 enum SearchType { person, movie, tv }
+extension SearchEntityExtensions on SearchEntity {
+  String getName() {
+    if (releaseDate.length>4) {
+      return "$name (${releaseDate.substring(0, 4)})";
+    }
+    else {
+      return name;
+    }
+  }
+}
 abstract class SearchEntity {
   final int id;
   final SearchType mediaType;
@@ -15,17 +25,8 @@ abstract class SearchEntity {
     required this.profilePath,
   });
 }
-extension SearchEntityExtensions on SearchEntity {
-  String getName() {
-    if (releaseDate.length>4) {
-      return "$name (${releaseDate.substring(0, 4)})";
-    }
-    else {
-      return name;
-    }
-  }
-}
-abstract class MediaSearch extends SearchEntity {
+
+class MediaSearch extends SearchEntity {
   final String overview;
   final String backdropPath;
 
@@ -40,32 +41,32 @@ abstract class MediaSearch extends SearchEntity {
     required super.profilePath,
   });
 }
-class MovieSearch extends MediaSearch {
-  const MovieSearch({
-    required super.overview,
-    required super.backdropPath,
-    required super.id,
-    required super.mediaType,
-    required super.name,
-    required super.originalName,
-    required super.releaseDate,
-    required super.profilePath,
-  });
-}
-class TvSearch extends MediaSearch {
-  const TvSearch({
-    required super.overview,
-    required super.backdropPath,
-    required super.id,
-    required super.mediaType,
-    required super.name,
-    required super.originalName,
-    required super.releaseDate,
-    required super.profilePath,
-  });
-
-
-}
+// class MovieSearch extends MediaSearch {
+//   const MovieSearch({
+//     required super.overview,
+//     required super.backdropPath,
+//     required super.id,
+//     required super.mediaType,
+//     required super.name,
+//     required super.originalName,
+//     required super.releaseDate,
+//     required super.profilePath,
+//   });
+// }
+// class TvSearch extends MediaSearch {
+//   const TvSearch({
+//     required super.overview,
+//     required super.backdropPath,
+//     required super.id,
+//     required super.mediaType,
+//     required super.name,
+//     required super.originalName,
+//     required super.releaseDate,
+//     required super.profilePath,
+//   });
+//
+//
+// }
 class PersonSearch extends SearchEntity {
   final String ?department;
   final List<SearchEntity> knownFor;

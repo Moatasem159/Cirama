@@ -51,7 +51,6 @@ part of 'app_router.dart';
   ],
 )
 class HomeShell extends StatefulShellRouteData {
-  static final GlobalKey<NavigatorState> $parentNavigatorKey = navigatorKey;
   const HomeShell();
 
   @override
