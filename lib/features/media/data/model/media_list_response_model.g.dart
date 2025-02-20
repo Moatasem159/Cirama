@@ -7,24 +7,25 @@ part of 'media_list_response_model.dart';
 // **************************************************************************
 
 MediaListResponseModel _$MediaListResponseModelFromJson(
-        Map<String, dynamic> json) =>
-    MediaListResponseModel(
-      page: (json['page'] as num).toInt(),
-      mediaList: (json['results'] as List<dynamic>)
+  Map<String, dynamic> json,
+) => MediaListResponseModel(
+  page: (json['page'] as num).toInt(),
+  mediaList:
+      (json['results'] as List<dynamic>)
           .map((e) => MediaListItemModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      totalPages: (json['total_pages'] as num).toInt(),
-      totalResults: (json['total_results'] as num).toInt(),
-    );
+  totalPages: (json['total_pages'] as num).toInt(),
+  totalResults: (json['total_results'] as num).toInt(),
+);
 
 Map<String, dynamic> _$MediaListResponseModelToJson(
-        MediaListResponseModel instance) =>
-    <String, dynamic>{
-      'page': instance.page,
-      'total_pages': instance.totalPages,
-      'total_results': instance.totalResults,
-      'results': instance.mediaList,
-    };
+  MediaListResponseModel instance,
+) => <String, dynamic>{
+  'page': instance.page,
+  'total_pages': instance.totalPages,
+  'total_results': instance.totalResults,
+  'results': instance.mediaList,
+};
 
 MediaListItemModel _$MediaListItemModelFromJson(Map<String, dynamic> json) =>
     MediaListItemModel(

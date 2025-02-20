@@ -1,7 +1,7 @@
 name: movies_app
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.4
+version: 1.1.0
 environment:
   sdk: ^3.7.0
 dependencies:
@@ -13,8 +13,6 @@ dependencies:
   dio: ^5.8.0+1
   # Flutter plugin to save images/videos to photos gallery.
   gal: ^2.3.1
-  # Lightweight and blazing fast key-value database written in pure Dart.
-  hive: ^2.2.3
   # Contains code to deal with internationalized/localized messages, date and number formatting.
   intl: ^0.19.0
   # RxDart is an implementation of the popular ReactiveX api for asynchronous programming.
@@ -23,6 +21,8 @@ dependencies:
   envied: ^1.1.1
   # Simple direct Service Locator that allows to decouple the interface from a concrete implementation.
   get_it: ^8.0.3
+  # Lightweight and blazing fast key-value database written in pure Dart.
+  hive_ce: ^2.10.1
   # Retrofit.dart is an dio client generator.
   retrofit: ^4.4.2
   # A declarative router for Flutter based on Navigation 2.
@@ -33,8 +33,6 @@ dependencies:
   restart_app: ^1.3.2
   # An SVG rendering and widget library for Flutter.
   flutter_svg: ^2.0.10+1
-  # Extension for Hive. Makes it easier to use Hive in Flutter apps.
-  hive_flutter: ^1.1.0
   # Converts already built widgets into skeleton loaders with no extra effort.
   skeletonizer: ^1.4.3
   # Flutter Widgets that make it easy to implement the BLoC.
@@ -43,6 +41,8 @@ dependencies:
   hydrated_bloc: ^10.0.0
   # Flutter plugin for getting commonly used locations on host platform file systems.
   path_provider: ^2.1.5
+  # Extension for Hive. Makes it easier to use Hive in Flutter apps.
+  hive_ce_flutter: ^2.2.0
   # Classes and helper functions that support JSON code generation.
   json_annotation: ^4.9.0
   # A Flutter plugin that provides a WebView widget.
@@ -68,18 +68,18 @@ dev_dependencies:
   build_runner: ^2.4.15
   # Recommended lints for Flutter apps.
   flutter_lints: ^5.0.0
-  # Extension for Hive. Automatically generates TypeAdapters to store any class.
-  hive_generator: ^2.0.1
   # Generator for the Envied package.
   envied_generator: ^1.1.1
   # A builder that supports generated strongly-typed route helpers for package:go_router.
   go_router_builder: ^2.8.0
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
-  json_serializable: ^6.9.0
+  json_serializable: ^6.9.4
+  # Extension for Hive. Automatically generates TypeAdapters to store any class.
+  hive_ce_generator: ^1.8.2
   # retrofit generator is an dio client generator
   retrofit_generator: ^9.1.9
   # Injectable_generator is a convenient code generator for Injectable.
-  injectable_generator: ^2.6.2
+  injectable_generator: ^2.7.0
   # Customize Flutter's default native splash screen.
   flutter_native_splash: ^2.4.5
 flutter:

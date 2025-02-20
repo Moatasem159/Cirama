@@ -1,4 +1,4 @@
-import 'package:hive/hive.dart';
+import 'package:hive_ce/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'search_model.g.dart';
@@ -47,12 +47,9 @@ abstract class SearchModel {
     required this.profilePath,
   });
 }
-@HiveType(typeId: 0)
 @JsonSerializable(createToJson: false)
 class MediaSearchModel extends SearchModel {
-  @HiveField(6)
   final String overview;
-  @HiveField(7, defaultValue: "")
   @JsonKey(name: "backdrop_path", required: false, defaultValue: "")
   final String backdropPath;
 
@@ -68,13 +65,10 @@ class MediaSearchModel extends SearchModel {
   });
   factory MediaSearchModel.fromJson(Map<String, dynamic> json) => _$MediaSearchModelFromJson(json);
 }
-@HiveType(typeId: 2)
 @JsonSerializable(createToJson: false)
 class PersonSearchModel extends SearchModel {
-  @HiveField(6)
   @JsonKey(name: "known_for_department", required: false)
   final String? department;
-  @HiveField(7)
   @JsonKey(name: "known_for")
   @SearchModelConverter()
   final List<SearchModel> knownFor;

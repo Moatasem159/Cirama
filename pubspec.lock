@@ -5,23 +5,18 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: "16e298750b6d0af7ce8a3ba7c18c69c3785d11b15ec83f6dcd0ad2a0009b3cab"
+      sha256: dc27559385e905ad30838356c5f5d574014ba39872d732111cd07ac0beff4c57
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "76.0.0"
-  _macros:
-    dependency: transitive
-    description: dart
-    source: sdk
-    version: "0.3.3"
+    version: "80.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "1f14db053a8c23e260789e9b0980fa27f2680dd640932cae5e1137cce0e46e1e"
+      sha256: "192d1c5b944e7e53b24b5586db760db934b177d4147c42fbca8c8c5f1eb8d11e"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "6.11.0"
+    version: "7.3.0"
   ansicolor:
     dependency: transitive
     description:
@@ -258,10 +253,10 @@ packages:
     dependency: transitive
     description:
       name: dart_style
-      sha256: "7306ab8a2359a48d22310ad823521d723acfed60ee1f7e37388e8986853b6820"
+      sha256: "27eb0ae77836989a3bc541ce55595e8ceee0992807f14511552a898ddd0d88ac"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.3.8"
+    version: "3.0.1"
   dbus:
     dependency: transitive
     description:
@@ -565,38 +560,30 @@ packages:
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "2.3.2"
-  hive:
-    dependency: "direct main"
-    description:
-      name: hive
-      sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
-      url: "https://pub-web.flutter-io.cn"
-    source: hosted
-    version: "2.2.3"
   hive_ce:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: hive_ce
       sha256: ac66daee46ad46486a1ed12cf91e9d7479c875fb46889be8d2c96b557406647f
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "2.10.1"
-  hive_flutter:
+  hive_ce_flutter:
     dependency: "direct main"
     description:
-      name: hive_flutter
-      sha256: dca1da446b1d808a51689fb5d0c6c9510c0a2ba01e22805d492c73b68e33eecc
+      name: hive_ce_flutter
+      sha256: "74c1d5f10d803446b4e7913bb272137e2724ba8a56465444f9e7713aeb60a877"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "1.1.0"
-  hive_generator:
+    version: "2.2.0"
+  hive_ce_generator:
     dependency: "direct dev"
     description:
-      name: hive_generator
-      sha256: "06cb8f58ace74de61f63500564931f9505368f45f98958bd7a6c35ba24159db4"
+      name: hive_ce_generator
+      sha256: "0b1c750e2d10c55a14cde16d479ada42704be6cef43c54b728ed0e4e02f7d808"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.0.1"
+    version: "1.8.2"
   html:
     dependency: transitive
     description:
@@ -657,10 +644,10 @@ packages:
     dependency: "direct dev"
     description:
       name: injectable_generator
-      sha256: af403d76c7b18b4217335e0075e950cd0579fd7f8d7bd47ee7c85ada31680ba1
+      sha256: b04673a4c88b3a848c0c77bf58b8309f9b9e064d9fe1df5450c8ee1675eaea1a
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "2.6.2"
+    version: "2.7.0"
   internet_connection_checker:
     dependency: "direct main"
     description:
@@ -705,10 +692,10 @@ packages:
     dependency: "direct dev"
     description:
       name: json_serializable
-      sha256: c2fcb3920cf2b6ae6845954186420fca40bc0a8abcc84903b7801f17d7050d7c
+      sha256: "81f04dee10969f89f604e1249382d46b97a1ccad53872875369622b5bfc9e58a"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "6.9.0"
+    version: "6.9.4"
   lints:
     dependency: transitive
     description:
@@ -725,14 +712,6 @@ packages:
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "1.3.0"
-  macros:
-    dependency: transitive
-    description:
-      name: macros
-      sha256: "1d9e801cd66f7ea3663c45fc708450db1fa57f988142c64289142c9b7ee80656"
-      url: "https://pub-web.flutter-io.cn"
-    source: hosted
-    version: "0.1.3-main.0"
   matcher:
     dependency: transitive
     description:
@@ -1062,10 +1041,10 @@ packages:
     dependency: transitive
     description:
       name: source_gen
-      sha256: "14658ba5f669685cd3d63701d01b31ea748310f7ab854e471962670abcf57832"
+      sha256: "35c8150ece9e8c8d263337a265153c3329667640850b9304861faea59fc98f6b"
       url: "https://pub-web.flutter-io.cn"
     source: hosted
-    version: "1.5.0"
+    version: "2.0.0"
   source_helper:
     dependency: transitive
     description:
@@ -1346,6 +1325,14 @@ packages:
       url: "https://pub-web.flutter-io.cn"
     source: hosted
     version: "3.1.3"
+  yaml_writer:
+    dependency: transitive
+    description:
+      name: yaml_writer
+      sha256: "69651cd7238411179ac32079937d4aa9a2970150d6b2ae2c6fe6de09402a5dc5"
+      url: "https://pub-web.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
   youtube_player_flutter:
     dependency: "direct main"
     description:

@@ -7,8 +7,9 @@ part of 'media_details_model.dart';
 // **************************************************************************
 
 MediaDetailsResponseModel _$MediaDetailsResponseModelFromJson(
-        Map<String, dynamic> json) =>
-    MediaDetailsResponseModel(
-      mediaDetails: const MediaConverter()
-          .fromJson(readMedia(json, 'mediaDetails') as Map<String, dynamic>),
-    );
+  Map<String, dynamic> json,
+) => MediaDetailsResponseModel(
+  mediaDetails: const MediaConverter().fromJson(
+    readMedia(json, 'mediaDetails') as Map<String, dynamic>,
+  ),
+);
