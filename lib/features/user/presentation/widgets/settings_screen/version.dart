@@ -11,7 +11,7 @@ class Version extends StatelessWidget {
       children: [
         Text("Cirama", style: context.titleMedium.copyWith(color: Colors.grey[700]!)),
         Text(
-          "Version 1.1.0",
+          "Version 1.1.1",
           style: context.titleSmall.copyWith(
             color: context.isDark ? Colors.grey[800]! : Colors.grey[500]!,
           ),

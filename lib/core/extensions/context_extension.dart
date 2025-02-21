@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:movies_app/core/l10n/gen_l10n/app_localizations.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 extension SizeExtension on BuildContext {
   double get screenHeight => MediaQuery.sizeOf(this).height;
@@ -31,8 +31,8 @@ extension TextThemeExtension on BuildContext {
   TextStyle get labelSmall => textTheme.labelSmall!;
 }
 extension LocalizationExtentions on BuildContext {
-  AppLocalizations get locale => AppLocalizations.of(this)!;
-  bool get isEnglish => AppLocalizations.of(this)!.localeName=='en';
+  AppLocalizations get locale => AppLocalizations.of(this);
+  bool get isEnglish => AppLocalizations.of(this).localeName=='en';
 }
 extension FunctionsExtension on BuildContext {
   showSnackBar(SnackBar snackBar)=>ScaffoldMessenger.of(this).showSnackBar(snackBar);

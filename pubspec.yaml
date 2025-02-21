@@ -1,7 +1,7 @@
 name: movies_app
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.1.0
+version: 1.1.1
 environment:
   sdk: ^3.7.0
 dependencies:
@@ -31,6 +31,8 @@ dependencies:
   injectable: ^2.5.0
   # A Flutter plugin that helps you to restart the whole Flutter app.
   restart_app: ^1.3.2
+  # The Flutter code generator for your assets, fonts, colors.
+  flutter_gen: ^5.9.0
   # An SVG rendering and widget library for Flutter.
   flutter_svg: ^2.0.10+1
   # Converts already built widgets into skeleton loaders with no extra effort.
@@ -63,6 +65,7 @@ dependencies:
   youtube_player_flutter: ^9.1.1
   # A pure Dart library that checks for internet.
   internet_connection_checker: ^3.0.1
+
 dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.15
@@ -78,10 +81,13 @@ dev_dependencies:
   hive_ce_generator: ^1.8.2
   # retrofit generator is an dio client generator
   retrofit_generator: ^9.1.9
+  # The Flutter code generator for your assets, fonts, colors.
+  flutter_gen_runner: ^5.9.0
   # Injectable_generator is a convenient code generator for Injectable.
   injectable_generator: ^2.7.0
   # Customize Flutter's default native splash screen.
   flutter_native_splash: ^2.4.5
+
 flutter:
   generate: true
   uses-material-design: true
@@ -153,3 +159,13 @@ flutter:
           weight: 800
         - asset: assets/fonts/cairo/Cairo-Black.ttf
           weight: 900
+
+flutter_gen:
+  output: lib/core/gen/
+  line_length: 80
+  assets:
+    enabled: false
+  fonts:
+    enabled: false
+  colors:
+    enabled: false
