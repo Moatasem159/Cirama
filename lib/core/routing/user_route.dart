@@ -62,7 +62,7 @@ class ChangeThemeRoute extends GoRouteData {
 }
 @TypedGoRoute<AccountMediaListRoute>(path: "/accountList",name: "accountList")
 class AccountMediaListRoute extends GoRouteData {
-  final ListType listType;
+  final ListType ?listType;
   const AccountMediaListRoute(this.listType);
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) => HorizontalSlide(
@@ -70,6 +70,6 @@ class AccountMediaListRoute extends GoRouteData {
     name: state.name,
     arguments: state.extra,
     direction: AppConstants.appLanguage == "en" ? SlideDirection.right : SlideDirection.left,
-    child: AccountListScreen(listType: listType),
+    child: AccountListScreen(listType: listType!),
   );
 }

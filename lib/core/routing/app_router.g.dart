@@ -172,9 +172,10 @@ extension $MovieRouteDataExtension on MovieRouteData {
 extension $SeeMoreMoviesRouteExtension on SeeMoreMoviesRoute {
   static SeeMoreMoviesRoute _fromState(GoRouterState state) =>
       SeeMoreMoviesRoute(
-        listType: _$ListTypeEnumMap._$fromName(
-          state.pathParameters['listType']!,
-        ),
+        listType:
+            _$ListTypeEnumMap._$fromName(
+              state.pathParameters['listType'] ?? '',
+            )!,
         state.extra as MediaListResponse,
       );
 
@@ -231,9 +232,10 @@ extension $TvRouteDataExtension on TvRouteData {
 extension $SeeMoreTvShowsRouteExtension on SeeMoreTvShowsRoute {
   static SeeMoreTvShowsRoute _fromState(GoRouterState state) =>
       SeeMoreTvShowsRoute(
-        listType: _$ListTypeEnumMap._$fromName(
-          state.pathParameters['listType']!,
-        ),
+        listType:
+            _$ListTypeEnumMap._$fromName(
+              state.pathParameters['listType'] ?? '',
+            )!,
         state.extra as MediaListResponse,
       );
 
@@ -332,8 +334,8 @@ extension $ChangeThemeRouteExtension on ChangeThemeRoute {
 }
 
 extension<T extends Enum> on Map<T, String> {
-  T _$fromName(String value) =>
-      entries.singleWhere((element) => element.value == value).key;
+  T? _$fromName(String value) =>
+      entries.where((element) => element.value == value).firstOrNull?.key;
 }
 
 RouteBase get $mediaDetailsRoute => GoRouteData.$route(
@@ -473,21 +475,29 @@ extension $TrailerRouteExtension on TrailerRoute {
 extension $SeasonDetailsRouteExtension on SeasonDetailsRoute {
   static SeasonDetailsRoute _fromState(GoRouterState state) =>
       SeasonDetailsRoute(
-        tvShowId: int.parse(state.uri.queryParameters['tv-show-id']!),
-        seasonNumber: int.parse(state.uri.queryParameters['season-number']!),
+        tvShowId: _$convertMapValue(
+          'tv-show-id',
+          state.uri.queryParameters,
+          int.tryParse,
+        ),
+        seasonNumber: _$convertMapValue(
+          'season-number',
+          state.uri.queryParameters,
+          int.tryParse,
+        ),
         posterPath: state.uri.queryParameters['poster-path'],
-        seasonName: state.uri.queryParameters['season-name']!,
-        airDate: state.uri.queryParameters['air-date']!,
+        seasonName: state.uri.queryParameters['season-name'],
+        airDate: state.uri.queryParameters['air-date'],
       );
 
   String get location => GoRouteData.$location(
     '/mediaDetails/seasonDetails',
     queryParams: {
-      'tv-show-id': tvShowId.toString(),
-      'season-number': seasonNumber.toString(),
+      if (tvShowId != null) 'tv-show-id': tvShowId!.toString(),
+      if (seasonNumber != null) 'season-number': seasonNumber!.toString(),
       if (posterPath != null) 'poster-path': posterPath,
-      'season-name': seasonName,
-      'air-date': airDate,
+      if (seasonName != null) 'season-name': seasonName,
+      if (airDate != null) 'air-date': airDate,
     },
   );
 
@@ -504,7 +514,7 @@ extension $SeasonDetailsRouteExtension on SeasonDetailsRoute {
 T? _$convertMapValue<T>(
   String key,
   Map<String, String> map,
-  T Function(String) converter,
+  T? Function(String) converter,
 ) {
   final value = map[key];
   return value == null ? null : converter(value);
@@ -531,12 +541,18 @@ RouteBase get $accountMediaListRoute => GoRouteData.$route(
 extension $AccountMediaListRouteExtension on AccountMediaListRoute {
   static AccountMediaListRoute _fromState(GoRouterState state) =>
       AccountMediaListRoute(
-        _$ListTypeEnumMap._$fromName(state.uri.queryParameters['list-type']!),
+        _$convertMapValue(
+          'list-type',
+          state.uri.queryParameters,
+          _$ListTypeEnumMap._$fromName,
+        ),
       );
 
   String get location => GoRouteData.$location(
     '/accountList',
-    queryParams: {'list-type': _$ListTypeEnumMap[listType]},
+    queryParams: {
+      if (listType != null) 'list-type': _$ListTypeEnumMap[listType!],
+    },
   );
 
   void go(BuildContext context) => context.go(location);

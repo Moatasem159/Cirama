@@ -109,11 +109,11 @@ class TrailerRoute extends GoRouteData {
 }
 
 class SeasonDetailsRoute extends GoRouteData {
-  final int tvShowId;
-  final int seasonNumber;
+  final int ?tvShowId;
+  final int ?seasonNumber;
   final String? posterPath;
-  final String seasonName;
-  final String airDate;
+  final String ?seasonName;
+  final String ?airDate;
 
   const SeasonDetailsRoute({
     required this.tvShowId,
@@ -125,10 +125,10 @@ class SeasonDetailsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) => SeasonDetailsScreen(
-        tvShowId: tvShowId,
-        seasonNumber: seasonNumber,
+        tvShowId: tvShowId!,
+        seasonNumber: seasonNumber!,
         posterPath: posterPath,
-        seasonName: seasonName,
-        airDate: airDate,
+        seasonName: seasonName!,
+        airDate: airDate!,
       );
 }
