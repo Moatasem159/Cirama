@@ -31,8 +31,6 @@ class MediaHorizontalListWidget extends StatelessWidget {
       child: BlocBuilder<GetMediaListCubit, GetMediaListState>(
         builder: (context, state) {
           switch (state) {
-            case GetMediaListInitial _:
-              return const SliverToBoxAdapter();
             case GetMediaListLoading():
               final MediaListResponse fakeResponse = MediaListResponse(
                 page: 0,

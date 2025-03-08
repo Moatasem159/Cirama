@@ -9,9 +9,8 @@ part 'get_season_details_state.dart';
 class GetSeasonDetailsCubit extends Cubit<GetSeasonDetailsState> {
   final SeasonDetailsParams _params;
   final MediaRepository _mediaRepository;
-  GetSeasonDetailsCubit(this._params, this._mediaRepository) : super(const GetSeasonDetailsInitial());
+  GetSeasonDetailsCubit(this._params, this._mediaRepository) : super(const GetSeasonDetailsLoading());
   Future<void> getSeasonDetails() async {
-    emit(const GetSeasonDetailsLoading());
     final ApiResult<TvShowSeason> result = await _mediaRepository.getSeasonDetails(_params);
     result.when(
       success: (TvShowSeason data) => emit(GetSeasonDetailsSuccess(data)),

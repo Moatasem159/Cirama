@@ -12,10 +12,9 @@ part 'get_media_list_state.dart';
 class GetMediaListCubit extends HydratedCubit<GetMediaListState> {
   final MediaListParams params;
   final MediaRepository _mediaRepository;
-  GetMediaListCubit(this._mediaRepository, this.params) : super(const GetMediaListInitial());
+  GetMediaListCubit(this._mediaRepository, this.params) : super(const GetMediaListLoading());
   Future<void> getMediaList() async {
     if (state is! GetMediaListSuccess) {
-      emit(const GetMediaListLoading());
       final ApiResult<MediaListResponse> result = await _mediaRepository.getMediaList(params);
       result.when(
         success: (MediaListResponse data) => emit(GetMediaListSuccess(

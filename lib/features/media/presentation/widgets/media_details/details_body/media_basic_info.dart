@@ -6,11 +6,8 @@ class _MediaBasicInfoBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetMediaDetailCubit, GetMediaDetailState>(
-      buildWhen: _shouldRebuild,
       builder: (BuildContext context, GetMediaDetailState state) {
         switch (state) {
-          case GetMediaDetailInitial _:
-            return const SizedBox.shrink();
           case GetMediaDetailLoading():
             return _MediaBasicInfo(
               key: ValueKey("loading"),
@@ -36,12 +33,6 @@ class _MediaBasicInfoBlocBuilder extends StatelessWidget {
         }
       },
     );
-  }
-
-  bool _shouldRebuild(GetMediaDetailState previous, GetMediaDetailState current) {
-    return current is GetMediaDetailSuccess ||
-        current is GetMediaDetailLoading ||
-        current is GetMediaDetailError;
   }
 }
 

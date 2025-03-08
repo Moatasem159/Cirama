@@ -12,6 +12,7 @@ class SeeMoreMediaCubit extends Cubit<SeeMoreMediaState> {
   SeeMoreMediaCubit(this.params, this._mediaRepository) : super(const SeeMoreMediaInitial());
   late MediaListResponse mediaListResponse;
   Future<void> getMediaList() async {
+    if (state is LastPage) return;
     if (state is SeeMoreMediaLoading) return;
     if (mediaListResponse.page >= mediaListResponse.totalPages) {
       emit(const LastPage());

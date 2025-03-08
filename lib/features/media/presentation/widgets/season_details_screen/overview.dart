@@ -9,8 +9,6 @@ class _SeasonOverview extends StatelessWidget {
     return BlocBuilder<GetSeasonDetailsCubit, GetSeasonDetailsState>(
       builder: (BuildContext context, GetSeasonDetailsState state) {
         switch (state) {
-          case GetSeasonDetailsInitial _:
-            return const SliverToBoxAdapter();
           case GetSeasonDetailsLoading _:
             return _SeasonOverviewWidget(enabled: true, overview: TvShowSeason.emptySeason().overview);
           case GetSeasonDetailsSuccess():

@@ -3,15 +3,9 @@ part of 'get_media_list_cubit.dart';
 sealed class GetMediaListState {
   const GetMediaListState();
 }
-
-final class GetMediaListInitial extends GetMediaListState {
-  const GetMediaListInitial();
-}
-
 final class GetMediaListLoading extends GetMediaListState {
   const GetMediaListLoading();
 }
-
 final class GetMediaListSuccess extends GetMediaListState {
   final String time;
   final String local;

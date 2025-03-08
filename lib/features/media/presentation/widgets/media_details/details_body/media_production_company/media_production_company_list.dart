@@ -15,7 +15,6 @@ class ProductionCompaniesBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetMediaDetailCubit, GetMediaDetailState>(
-      buildWhen: _shouldRebuild,
       builder: (BuildContext context, GetMediaDetailState state) {
         if (state is GetMediaDetailSuccess &&
             state.mediaDetails.productionCompanies.isNotEmpty) {
@@ -26,9 +25,6 @@ class ProductionCompaniesBlocBuilder extends StatelessWidget {
         return const SizedBox.shrink();
       },
     );
-  }
-  bool _shouldRebuild(GetMediaDetailState previous, GetMediaDetailState current) {
-    return current is GetMediaDetailSuccess || current is GetMediaDetailLoading|| current is GetMediaDetailError;
   }
 }
 

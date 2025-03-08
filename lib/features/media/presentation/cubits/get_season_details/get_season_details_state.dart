@@ -2,9 +2,6 @@ part of 'get_season_details_cubit.dart';
 sealed class GetSeasonDetailsState {
   const GetSeasonDetailsState();
 }
-final class GetSeasonDetailsInitial extends GetSeasonDetailsState {
-  const GetSeasonDetailsInitial();
-}
 final class GetSeasonDetailsLoading extends GetSeasonDetailsState {
   const GetSeasonDetailsLoading();
 }

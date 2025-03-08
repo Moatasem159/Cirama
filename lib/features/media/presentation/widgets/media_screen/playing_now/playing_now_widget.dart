@@ -42,8 +42,6 @@ class PlayingNowWidget extends StatelessWidget {
       child: BlocBuilder<GetMediaListCubit, GetMediaListState>(
         builder: (BuildContext context, GetMediaListState state) {
           switch (state) {
-            case GetMediaListInitial _:
-              return const SliverToBoxAdapter();
             case GetMediaListLoading _:
               final MediaListResponse fakeResponse = MediaListResponse(
                 page: 0,
