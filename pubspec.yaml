@@ -3,7 +3,7 @@ description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.1.3
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.8.0
 dependencies:
   flutter_localizations:
     sdk: flutter
@@ -14,7 +14,7 @@ dependencies:
   # Flutter plugin to save images/videos to photos gallery.
   gal: ^2.3.1
   # Contains code to deal with internationalized/localized messages, date and number formatting.
-  intl: ^0.19.0
+  intl: ^0.20.2
   # RxDart is an implementation of the popular ReactiveX api for asynchronous programming.
   rxdart: ^0.28.0
   # Explicitly reads environment variables into a dart file from a .env file.
@@ -22,11 +22,11 @@ dependencies:
   # Simple direct Service Locator that allows to decouple the interface from a concrete implementation.
   get_it: ^8.0.3
   # Lightweight and blazing fast key-value database written in pure Dart.
-  hive_ce: ^2.10.1
+  hive_ce: ^2.11.2
   # Retrofit.dart is an dio client generator.
   retrofit: ^4.4.2
   # A declarative router for Flutter based on Navigation 2.
-  go_router: ^14.8.1
+  go_router: ^15.1.2
   # Injectable is a convenient code generator for get_it.
   injectable: ^2.5.0
   # A Flutter plugin that helps you to restart the whole Flutter app.
@@ -34,21 +34,21 @@ dependencies:
   # The Flutter code generator for your assets, fonts, colors.
   flutter_gen: ^5.10.0
   # An SVG rendering and widget library for Flutter.
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^2.1.0
   # Converts already built widgets into skeleton loaders with no extra effort.
-  skeletonizer: ^1.4.3
+  skeletonizer: ^2.0.0-pre
   # Flutter Widgets that make it easy to implement the BLoC.
-  flutter_bloc: ^9.1.0
+  flutter_bloc: ^9.1.1
   # An extension to the bloc state management library which automatically persists and restores bloc states.
   hydrated_bloc: ^10.0.0
   # Flutter plugin for getting commonly used locations on host platform file systems.
   path_provider: ^2.1.5
   # Extension for Hive. Makes it easier to use Hive in Flutter apps.
-  hive_ce_flutter: ^2.2.0
+  hive_ce_flutter: ^2.3.1
   # Classes and helper functions that support JSON code generation.
   json_annotation: ^4.9.0
   # A Flutter plugin that provides a WebView widget.
-  webview_flutter: ^4.10.0
+  webview_flutter: ^4.12.0
   # A carousel slider widget.
   carousel_slider: ^5.0.0
   # Default icons asset for Cupertino widgets.
@@ -56,7 +56,7 @@ dependencies:
   # A simple yet fully customizable ratingbar for flutter.
   flutter_rating_bar: ^4.0.1
   # Flutter plugin for reading and writing simple key-value pairs.
-  shared_preferences: ^2.5.2
+  shared_preferences: ^2.5.3
   # Flutter library to load and cache network images.
   cached_network_image: ^3.4.1
   # Flutter Secure Storage provides API to store data in secure storage.
@@ -66,6 +66,10 @@ dependencies:
   # A pure Dart library that checks for internet.
   internet_connection_checker: ^3.0.1
 dev_dependencies:
+  # Set of lint rules for the Flutter BLoC library.
+  bloc_lint: ^0.2.0-dev.3
+  # allows package authors and developers to easily write custom lint rules.
+  custom_lint: ^0.7.5
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.15
   # Recommended lints for Flutter apps.
@@ -73,20 +77,21 @@ dev_dependencies:
   # Generator for the Envied package.
   envied_generator: ^1.1.1
   # A builder that supports generated strongly-typed route helpers for package:go_router.
-  go_router_builder: ^2.8.2
+  go_router_builder: ^2.9.0
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
-  json_serializable: ^6.9.4
+  json_serializable: ^6.9.5
   # Extension for Hive. Automatically generates TypeAdapters to store any class.
-  hive_ce_generator: ^1.8.2
+  hive_ce_generator: ^1.9.1
   # retrofit generator is an dio client generator
-  retrofit_generator: ^9.1.9
+  retrofit_generator: ^9.2.0
   # The Flutter code generator for your assets, fonts, colors.
   flutter_gen_runner: ^5.10.0
   # Injectable_generator is a convenient code generator for Injectable.
   injectable_generator: ^2.7.0
   # Customize Flutter's default native splash screen.
-  flutter_native_splash: ^2.4.5
+  flutter_native_splash: ^2.4.6
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/images/splash/

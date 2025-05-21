@@ -10,21 +10,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String errorMessages(String code) {
-    String _temp0 = intl.Intl.selectLogic(
-      code,
-      {
-        'connectionTimeout': 'Connection timeout occurred.',
-        'sendTimeout': 'Request timed out while sending data.',
-        'receiveTimeout': 'Response timeout occurred.',
-        'badCertificate': 'Invalid security certificate.',
-        'badResponse': 'Received an invalid response from the server.',
-        'cancelRequest': 'The request was cancelled.',
-        'connectionError': 'Internet connection error.',
-        'unKnownError': 'Something went wrong.Please try again.',
-        'defaultError': 'Something went wrong.Please try again.',
-        'other': 'Something went wrong.Please try again.',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(code, {
+      'connectionTimeout': 'Connection timeout occurred.',
+      'sendTimeout': 'Request timed out while sending data.',
+      'receiveTimeout': 'Response timeout occurred.',
+      'badCertificate': 'Invalid security certificate.',
+      'badResponse': 'Received an invalid response from the server.',
+      'cancelRequest': 'The request was cancelled.',
+      'connectionError': 'Internet connection error.',
+      'unKnownError': 'Something went wrong.Please try again.',
+      'defaultError': 'Something went wrong.Please try again.',
+      'other': 'Something went wrong.Please try again.',
+    });
     return '$_temp0';
   }
 
@@ -35,27 +32,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signInForTheBestExperience => 'Sign in for the best experience';
 
   @override
-  String get keepTrackOfWhatYouWantToWatch => 'Keep track of what you want to watch';
+  String get keepTrackOfWhatYouWantToWatch =>
+      'Keep track of what you want to watch';
 
   @override
   String get rateWhatYouHaveWatched => 'Rate what you have watched';
 
   @override
-  String get markFavoriteWhatYouHaveWatched => 'Mark favorite what you have watched';
+  String get markFavoriteWhatYouHaveWatched =>
+      'Mark favorite what you have watched';
 
   @override
   String get letsStart => 'Let\'s start';
 
   @override
   String inMedia(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'movie': 'In Movies',
-        'tv': 'In Tv shows',
-        'other': 'In media',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'movie': 'In Movies',
+      'tv': 'In Tv shows',
+      'other': 'In media',
+    });
     return '$_temp0';
   }
 
@@ -63,26 +59,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String media(num count, String type) {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
-      
     );
     final String countString = countNumberFormat.format(count);
 
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'movie': 'Movies',
-        'tv': 'Tv shows',
-        'other': 'Media',
-      },
-    );
-    String _temp1 = intl.Intl.selectLogic(
-      type,
-      {
-        'movie': 'Movie',
-        'tv': 'Tv show',
-        'other': 'Media',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'movie': 'Movies',
+      'tv': 'Tv shows',
+      'other': 'Media',
+    });
+    String _temp1 = intl.Intl.selectLogic(type, {
+      'movie': 'Movie',
+      'tv': 'Tv show',
+      'other': 'Media',
+    });
     String _temp2 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
@@ -94,33 +83,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String listType(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'now_playing': 'Playing now',
-        'on_the_air': 'Playing now',
-        'popular': 'Popular',
-        'trending': 'Trending',
-        'top_rated': 'Top Rated',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'now_playing': 'Playing now',
+      'on_the_air': 'Playing now',
+      'popular': 'Popular',
+      'trending': 'Trending',
+      'top_rated': 'Top Rated',
+      'other': '',
+    });
     return '$_temp0';
   }
 
   @override
   String onMediaListType(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'now_playing': 'On Playing now',
-        'on_the_air': 'On Playing now',
-        'popular': 'On popular',
-        'trending': 'On trending',
-        'top_rated': 'On top rated',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'now_playing': 'On Playing now',
+      'on_the_air': 'On Playing now',
+      'popular': 'On popular',
+      'trending': 'On trending',
+      'top_rated': 'On top rated',
+      'other': '',
+    });
     return '$_temp0';
   }
 
@@ -211,15 +194,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String imageTitle(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'backdrops': 'Backdrops',
-        'posters': 'Posters',
-        'logos': 'Logos',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'backdrops': 'Backdrops',
+      'posters': 'Posters',
+      'logos': 'Logos',
+      'other': '',
+    });
     return '$_temp0';
   }
 
@@ -263,7 +243,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get changeLang => 'Change language';
 
   @override
-  String get changeLangDialog => 'Change language requires closing the app and reopening it again. are you sure you want to do that?';
+  String get changeLangDialog =>
+      'Change language requires closing the app and reopening it again. are you sure you want to do that?';
 
   @override
   String get agree => 'agree';
@@ -285,32 +266,26 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String userLists(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'ratedMovies': 'Rated movies',
-        'ratedTv': 'Rated TV shows',
-        'favoriteMovies': 'Favorite movies',
-        'favoriteTv': 'Favorite TV shows',
-        'watchlistMovies': 'Movies watchlist',
-        'watchlistTv': 'TV shows watchlist',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'ratedMovies': 'Rated movies',
+      'ratedTv': 'Rated TV shows',
+      'favoriteMovies': 'Favorite movies',
+      'favoriteTv': 'Favorite TV shows',
+      'watchlistMovies': 'Movies watchlist',
+      'watchlistTv': 'TV shows watchlist',
+      'other': '',
+    });
     return '$_temp0';
   }
 
   @override
   String emptyUserList(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'ratings': 'No ratings yet',
-        'favorite': 'No favorites yet',
-        'watchlist': 'No watchlist yet',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'ratings': 'No ratings yet',
+      'favorite': 'No favorites yet',
+      'watchlist': 'No watchlist yet',
+      'other': '',
+    });
     return '$_temp0';
   }
 

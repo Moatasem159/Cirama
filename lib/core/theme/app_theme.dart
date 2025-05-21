@@ -70,7 +70,7 @@ class AppTheme {
             },
           ),
         ),
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
           elevation: 5,
           insetPadding: const EdgeInsets.symmetric(horizontal: 15),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -141,7 +141,7 @@ class AppTheme {
             },
           ),
         ),
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
           elevation: 5,
           insetPadding: const EdgeInsets.symmetric(horizontal: 15),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
