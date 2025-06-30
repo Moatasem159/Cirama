@@ -3,19 +3,19 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'search_model.g.dart';
 
-readName(Map json, _) {
+dynamic readName(Map json, _) {
   return json['name'] ?? json['title'] ?? '';
 }
 
-readProfilePath(Map json, _) {
+dynamic readProfilePath(Map json, _) {
   return json['poster_path'] ?? json['poster_path'] ?? '';
 }
 
-readOriginalName(Map json, _) {
+dynamic readOriginalName(Map json, _) {
   return json['original_name'] ?? json['original_title'] ?? '';
 }
 
-readReleaseDate(Map json, _) {
+dynamic readReleaseDate(Map json, _) {
   return json['release_date'] ?? json['first_air_date'] ?? '';
 }
 

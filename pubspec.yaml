@@ -3,7 +3,7 @@ description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.2.0
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.8.1
 dependencies:
   flutter_localizations:
     sdk: flutter
@@ -22,11 +22,11 @@ dependencies:
   # Simple direct Service Locator that allows to decouple the interface from a concrete implementation.
   get_it: ^8.0.3
   # Lightweight and blazing fast key-value database written in pure Dart.
-  hive_ce: ^2.11.2
+  hive_ce: ^2.11.3
   # Retrofit.dart is an dio client generator.
-  retrofit: ^4.4.2
+  retrofit: ^4.5.0
   # A declarative router for Flutter based on Navigation 2.
-  go_router: ^15.1.2
+  go_router: ^15.2.4
   # Injectable is a convenient code generator for get_it.
   injectable: ^2.5.0
   # A Flutter plugin that helps you to restart the whole Flutter app.
@@ -34,9 +34,9 @@ dependencies:
   # The Flutter code generator for your assets, fonts, colors.
   flutter_gen: ^5.10.0
   # An SVG rendering and widget library for Flutter.
-  flutter_svg: ^2.1.0
+  flutter_svg: ^2.2.0
   # Converts already built widgets into skeleton loaders with no extra effort.
-  skeletonizer: ^2.0.0-pre
+  skeletonizer: ^2.0.1
   # Flutter Widgets that make it easy to implement the BLoC.
   flutter_bloc: ^9.1.1
   # An extension to the bloc state management library which automatically persists and restores bloc states.
@@ -48,9 +48,9 @@ dependencies:
   # Classes and helper functions that support JSON code generation.
   json_annotation: ^4.9.0
   # A Flutter plugin that provides a WebView widget.
-  webview_flutter: ^4.12.0
+  webview_flutter: ^4.13.0
   # A carousel slider widget.
-  carousel_slider: ^5.0.0
+  carousel_slider: ^5.1.1
   # Default icons asset for Cupertino widgets.
   cupertino_icons: ^1.0.8
   # A simple yet fully customizable ratingbar for flutter.
@@ -73,17 +73,17 @@ dev_dependencies:
   # A build system for Dart code generation and modular compilation.
   build_runner: ^2.4.15
   # Recommended lints for Flutter apps.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   # Generator for the Envied package.
   envied_generator: ^1.1.1
   # A builder that supports generated strongly-typed route helpers for package:go_router.
-  go_router_builder: ^2.9.0
+  go_router_builder: ^3.0.1
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   json_serializable: ^6.9.5
   # Extension for Hive. Automatically generates TypeAdapters to store any class.
-  hive_ce_generator: ^1.9.1
+  hive_ce_generator: ^1.9.2
   # retrofit generator is an dio client generator
-  retrofit_generator: ^9.2.0
+  retrofit_generator: ^9.3.0
   # The Flutter code generator for your assets, fonts, colors.
   flutter_gen_runner: ^5.10.0
   # Injectable_generator is a convenient code generator for Injectable.

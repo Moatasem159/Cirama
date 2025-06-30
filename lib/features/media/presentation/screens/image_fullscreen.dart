@@ -15,7 +15,7 @@ class ImageFullscreen extends StatelessWidget {
 
   const ImageFullscreen({super.key, required this.image});
 
-  save(BuildContext context) async {
+  Future<void> save(BuildContext context) async {
     final imagePath = '${Directory.systemTemp.path}/image.jpg';
     await Dio().download(ImageUrl.hdUrl(image!), imagePath);
     await Gal.putImage(imagePath, album: "Cirama").then(

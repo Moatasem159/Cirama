@@ -7,7 +7,7 @@ class _CarouselBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
       itemCount: mediaList.length,
-      itemBuilder: (_, index, __) => _CarousalItem(mediaList[index]),
+      itemBuilder: (_, index, _) => _CarousalItem(mediaList[index]),
       options: CarouselOptions(
         enlargeCenterPage: true,
         autoPlay: context.enabled ? false : true,

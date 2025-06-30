@@ -40,7 +40,7 @@ class GetAccountListCubit extends Cubit<GetAccountListState> {
     );
   }
 
-  updateList(bool remove, MediaListItem item) {
+  void updateList(bool remove, MediaListItem item) {
     {
       if (remove) {
         mediaListResponse.mediaList.removeWhere((MediaListItem element) => element.id == item.id);

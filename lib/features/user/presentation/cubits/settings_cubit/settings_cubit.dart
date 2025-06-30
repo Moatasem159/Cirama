@@ -11,44 +11,44 @@ part 'settings_state.dart';
 class SettingsCubit extends HydratedCubit<SettingsState> {
   SettingsCubit() : super(const SettingsState(locale: "en", themeMode: ThemeMode.system));
 
-  toArabic() {
+  void toArabic() {
     if (state.locale !="ar") {
       _changeLocale("ar");
     }
   }
 
-  toEnglish() {
+  void toEnglish() {
     if (state.locale != "en") {
       _changeLocale("en");
     }
   }
 
-  toSystemTheme() {
+  void toSystemTheme() {
     if (state.themeMode != ThemeMode.system) {
       _changeTheme(ThemeMode.system);
     }
   }
 
-  toLightTheme() {
+  void toLightTheme() {
     if (state.themeMode != ThemeMode.light) {
       _changeTheme(ThemeMode.light);
     }
   }
 
-  toDarkTheme() {
+  void toDarkTheme() {
     if (state.themeMode != ThemeMode.dark) {
       _changeTheme(ThemeMode.dark);
     }
   }
-  getLocalName(BuildContext context) => state.locale == "en" ? _englishLocale(context) : _arabicLocale(context);
-  _arabicLocale(BuildContext context) =>context.locale.arabic;
-  _englishLocale(BuildContext context) =>context.locale.english;
-  isArabic() => state.locale == "ar";
-  isEnglish() => state.locale == "en";
+  dynamic getLocalName(BuildContext context) => state.locale == "en" ? _englishLocale(context) : _arabicLocale(context);
+  String _arabicLocale(BuildContext context) =>context.locale.arabic;
+  String _englishLocale(BuildContext context) =>context.locale.english;
+  bool isArabic() => state.locale == "ar";
+  bool isEnglish() => state.locale == "en";
 
-  isSystemTheme() => state.themeMode == ThemeMode.system;
+  bool isSystemTheme() => state.themeMode == ThemeMode.system;
 
-  getThemeModeName(BuildContext context) {
+  dynamic getThemeModeName(BuildContext context) {
     switch (state.themeMode) {
       case ThemeMode.system:
         return _systemTheme(context);
@@ -59,23 +59,23 @@ class SettingsCubit extends HydratedCubit<SettingsState> {
     }
   }
 
-  _systemTheme(BuildContext context) => context.locale.systemDefault;
+  String _systemTheme(BuildContext context) => context.locale.systemDefault;
 
-  _darkTheme(BuildContext context) => context.locale.dark;
+  String _darkTheme(BuildContext context) => context.locale.dark;
 
-  _lightTheme(BuildContext context) => context.locale.light;
+  String _lightTheme(BuildContext context) => context.locale.light;
 
-  isDarkTheme() => state.themeMode == ThemeMode.dark;
+  bool isDarkTheme() => state.themeMode == ThemeMode.dark;
 
-  isLightTheme() => state.themeMode == ThemeMode.light;
+  bool isLightTheme() => state.themeMode == ThemeMode.light;
 
-  _changeLocale(String locale) {
+  void _changeLocale(String locale) {
     AppConstants.appLanguage = locale;
     emit(state.copyWith(locale:locale));
     Restart.restartApp();
   }
 
-  _changeTheme(ThemeMode themeMode) {
+  void _changeTheme(ThemeMode themeMode) {
     emit(state.copyWith(themeMode: themeMode));
   }
 

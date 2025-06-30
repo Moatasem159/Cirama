@@ -9,7 +9,7 @@ class EpisodesList extends StatelessWidget {
         if (state is GetSeasonDetailsLoading) {
           return SliverList.builder(
             itemCount: 7,
-            itemBuilder: (_, __) => EpisodeCard(
+            itemBuilder: (_, _) => EpisodeCard(
               enabled: true,
               episode: Episode.emptyEpisode(),
             ),

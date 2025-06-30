@@ -1,16 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
 
 part 'media_model.g.dart';
-readName(Map json, _) {
+dynamic readName(Map json, _) {
   return json['name'] ?? json['title'] ?? '';
 }
-readOriginalName(Map json, _) {
+dynamic readOriginalName(Map json, _) {
   return json['original_name'] ?? json['original_title'] ?? '';
 }
-readReleaseDate(Map json, _) {
+dynamic readReleaseDate(Map json, _) {
   return json['release_date'] ?? json['first_air_date'] ?? '';
 }
-readRatedValue(Map json, _) {
+dynamic readRatedValue(Map json, _) {
   return json["rated"] == false ? 0.0 : json["rated"]["value"];
 }
 abstract class MediaModel {

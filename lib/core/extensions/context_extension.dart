@@ -35,7 +35,7 @@ extension LocalizationExtentions on BuildContext {
   bool get isEnglish => AppLocalizations.of(this).localeName=='en';
 }
 extension FunctionsExtension on BuildContext {
-  showSnackBar(SnackBar snackBar)=>ScaffoldMessenger.of(this).showSnackBar(snackBar);
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(SnackBar snackBar)=>ScaffoldMessenger.of(this).showSnackBar(snackBar);
 }
 
 extension SkeletonizerExtension on BuildContext {

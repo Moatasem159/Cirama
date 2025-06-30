@@ -6,7 +6,7 @@ import 'package:movies_app/features/media/data/model/media_model.dart';
 
 part 'movie_model.g.dart';
 
-readKeywords(Map json, name) {
+dynamic readKeywords(Map json, name) {
   return json[name][name];
 }
 

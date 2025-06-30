@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'account_data_model.g.dart';
 
-readAvatar(Map json, _) {
+dynamic readAvatar(Map json, _) {
   if (json['avatar'] is Map) {
     return json['avatar']['tmdb']['avatar_path'];
   } else {

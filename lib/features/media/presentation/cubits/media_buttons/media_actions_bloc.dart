@@ -103,18 +103,18 @@ class MediaActionsBloc extends Bloc<MediaActionsEvents, MediaActionsState> {
     }
   }
 
-  updateRateValue(double value) {
+  void updateRateValue(double value) {
     if (lastRate == null) {
       saveLastRate();
     }
     mediaAccountDetails = mediaAccountDetails.copyWith(ratedValue: value);
   }
 
-  saveLastRate() {
+  void saveLastRate() {
     lastRate = mediaAccountDetails.ratedValue.toDouble();
   }
 
-  getLastRate() {
+  void getLastRate() {
     mediaAccountDetails = mediaAccountDetails.copyWith(ratedValue: lastRate);
     lastRate = null;
   }

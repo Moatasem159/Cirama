@@ -7,11 +7,11 @@ import 'package:movies_app/features/media/data/model/tv_show_model.dart';
 
 part 'media_details_model.g.dart';
 
-readVideo(Map json, name) {
+dynamic readVideo(Map json, name) {
   return json[name]['results'];
 }
 
-readMedia(Map json, _) {
+Map readMedia(Map json, _) {
   return json;
 }
 
