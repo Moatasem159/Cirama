@@ -8,7 +8,7 @@ part of 'hive_adapters.dart';
 
 class MediaSearchModelAdapter extends TypeAdapter<MediaSearchModel> {
   @override
-  final int typeId = 0;
+  final typeId = 0;
 
   @override
   MediaSearchModel read(BinaryReader reader) {
@@ -63,7 +63,7 @@ class MediaSearchModelAdapter extends TypeAdapter<MediaSearchModel> {
 
 class PersonSearchModelAdapter extends TypeAdapter<PersonSearchModel> {
   @override
-  final int typeId = 1;
+  final typeId = 1;
 
   @override
   PersonSearchModel read(BinaryReader reader) {

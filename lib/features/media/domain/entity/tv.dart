@@ -84,7 +84,7 @@ class TvShowSeason {
 
 extension TvShowSeasonExtensions on TvShowSeason {
   String getAirDate() {
-    return airDate != null ? "(${airDate!.substring(0, 4)})" : '';
+    return airDate != null ? airDate!.substring(0, 4) : '';
   }
 }
 

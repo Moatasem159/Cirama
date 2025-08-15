@@ -9,36 +9,29 @@ class SeasonInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 130,
-      padding: EdgeInsets.symmetric(horizontal: 2),
-      decoration: const BoxDecoration(
-          color: Colors.black54, borderRadius: BorderRadius.vertical(bottom: Radius.circular(10))),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 5,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            season.name,
-            style: context.titleSmall.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
-            textAlign: TextAlign.center,
+            "${season.name} ",
+            maxLines: null,
+            style: context.titleSmall.copyWith(fontWeight: FontWeight.w600),
             textScaler: TextScaler.linear(context.screenWidth / 350),
           ),
           Text(
-            season.airDate != null
-                ? "${season.getAirDate()} | ${context.locale.episodes(season.episodeCount!)}"
-                : context.locale.episodes(season.episodeCount!),
-            maxLines: null,
+            context.locale.episodes(season.episodeCount!),
             overflow: TextOverflow.visible,
-            textAlign: TextAlign.center,
-            style: context.labelMedium.copyWith(
-              fontWeight: FontWeight.w500,
-            ),
-            textScaler: TextScaler.linear(context.screenWidth / 370),
+            style: context.labelMedium.copyWith(fontWeight: FontWeight.w600),
+            textScaler: TextScaler.linear(context.screenWidth / 350),
+          ),
+          Text(
+            season.getAirDate(),
+            overflow: TextOverflow.visible,
+            style: context.labelMedium.copyWith(fontWeight: FontWeight.w500),
+            textScaler: TextScaler.linear(context.screenWidth / 350),
           ),
         ],
       ),

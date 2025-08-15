@@ -15,48 +15,61 @@ List<RouteBase> get $appRoutes => [
 ];
 
 RouteBase get $initialRoute =>
-    GoRouteData.$route(path: '/', factory: $InitialRouteExtension._fromState);
+    GoRouteData.$route(path: '/', factory: _$InitialRoute._fromState);
 
-extension $InitialRouteExtension on InitialRoute {
+mixin _$InitialRoute on GoRouteData {
   static InitialRoute _fromState(GoRouterState state) => InitialRoute();
 
+  @override
   String get location => GoRouteData.$location('/');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $loginRoute => GoRouteData.$route(
   path: '/login/:requestToken',
 
-  factory: $LoginRouteExtension._fromState,
+  factory: _$LoginRoute._fromState,
 );
 
-extension $LoginRouteExtension on LoginRoute {
+mixin _$LoginRoute on GoRouteData {
   static LoginRoute _fromState(GoRouterState state) => LoginRoute(
     requestToken: state.pathParameters['requestToken']!,
     $extra: state.extra as AuthCubit,
   );
 
-  String get location =>
-      GoRouteData.$location('/login/${Uri.encodeComponent(requestToken)}');
+  LoginRoute get _self => this as LoginRoute;
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  String get location => GoRouteData.$location(
+    '/login/${Uri.encodeComponent(_self.requestToken)}',
+  );
 
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
 RouteBase get $homeShell => StatefulShellRouteData.$route(
@@ -68,13 +81,13 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
           path: '/movie',
           name: 'movie',
 
-          factory: $MovieRouteDataExtension._fromState,
+          factory: _$MovieRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'seeMoreMovies/:listType',
               name: 'seeMoreMovies',
 
-              factory: $SeeMoreMoviesRouteExtension._fromState,
+              factory: _$SeeMoreMoviesRoute._fromState,
             ),
           ],
         ),
@@ -86,13 +99,13 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
           path: '/tv',
           name: 'tv',
 
-          factory: $TvRouteDataExtension._fromState,
+          factory: _$TvRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'seeMoreTvShows/:listType',
               name: 'seeMoreTvShows',
 
-              factory: $SeeMoreTvShowsRouteExtension._fromState,
+              factory: _$SeeMoreTvShowsRoute._fromState,
             ),
           ],
         ),
@@ -103,7 +116,7 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/search',
 
-          factory: $SearchRouteDataExtension._fromState,
+          factory: _$SearchRouteData._fromState,
         ),
       ],
     ),
@@ -115,30 +128,34 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/user',
           name: 'user',
+
           parentNavigatorKey: UserRouteData.$parentNavigatorKey,
 
-          factory: $UserRouteDataExtension._fromState,
+          factory: _$UserRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'settings',
               name: 'settings',
+
               parentNavigatorKey: SettingsRoute.$parentNavigatorKey,
 
-              factory: $SettingsRouteExtension._fromState,
+              factory: _$SettingsRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'changeLanguage',
                   name: 'changeLanguage',
+
                   parentNavigatorKey: ChangeLanguageRoute.$parentNavigatorKey,
 
-                  factory: $ChangeLanguageRouteExtension._fromState,
+                  factory: _$ChangeLanguageRoute._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'changeTheme',
                   name: 'changeTheme',
+
                   parentNavigatorKey: ChangeThemeRoute.$parentNavigatorKey,
 
-                  factory: $ChangeThemeRouteExtension._fromState,
+                  factory: _$ChangeThemeRoute._fromState,
                 ),
               ],
             ),
@@ -153,46 +170,57 @@ extension $HomeShellExtension on HomeShell {
   static HomeShell _fromState(GoRouterState state) => const HomeShell();
 }
 
-extension $MovieRouteDataExtension on MovieRouteData {
+mixin _$MovieRouteData on GoRouteData {
   static MovieRouteData _fromState(GoRouterState state) =>
       const MovieRouteData();
 
+  @override
   String get location => GoRouteData.$location('/movie');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SeeMoreMoviesRouteExtension on SeeMoreMoviesRoute {
+mixin _$SeeMoreMoviesRoute on GoRouteData {
   static SeeMoreMoviesRoute _fromState(GoRouterState state) =>
       SeeMoreMoviesRoute(
-        listType:
-            _$ListTypeEnumMap._$fromName(
-              state.pathParameters['listType'] ?? '',
-            )!,
+        listType: _$ListTypeEnumMap._$fromName(
+          state.pathParameters['listType'] ?? '',
+        )!,
         state.extra as MediaListResponse,
       );
 
+  SeeMoreMoviesRoute get _self => this as SeeMoreMoviesRoute;
+
+  @override
   String get location => GoRouteData.$location(
-    '/movie/seeMoreMovies/${Uri.encodeComponent(_$ListTypeEnumMap[listType!]!)}',
+    '/movie/seeMoreMovies/${Uri.encodeComponent(_$ListTypeEnumMap[_self.listType!]!)}',
   );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
 const _$ListTypeEnumMap = {
@@ -214,127 +242,163 @@ const _$ListTypeEnumMap = {
   ListType.noTvShowList: 'no-tv-show-list',
 };
 
-extension $TvRouteDataExtension on TvRouteData {
+mixin _$TvRouteData on GoRouteData {
   static TvRouteData _fromState(GoRouterState state) => const TvRouteData();
 
+  @override
   String get location => GoRouteData.$location('/tv');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SeeMoreTvShowsRouteExtension on SeeMoreTvShowsRoute {
+mixin _$SeeMoreTvShowsRoute on GoRouteData {
   static SeeMoreTvShowsRoute _fromState(GoRouterState state) =>
       SeeMoreTvShowsRoute(
-        listType:
-            _$ListTypeEnumMap._$fromName(
-              state.pathParameters['listType'] ?? '',
-            )!,
+        listType: _$ListTypeEnumMap._$fromName(
+          state.pathParameters['listType'] ?? '',
+        )!,
         state.extra as MediaListResponse,
       );
 
+  SeeMoreTvShowsRoute get _self => this as SeeMoreTvShowsRoute;
+
+  @override
   String get location => GoRouteData.$location(
-    '/tv/seeMoreTvShows/${Uri.encodeComponent(_$ListTypeEnumMap[listType!]!)}',
+    '/tv/seeMoreTvShows/${Uri.encodeComponent(_$ListTypeEnumMap[_self.listType!]!)}',
   );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $SearchRouteDataExtension on SearchRouteData {
+mixin _$SearchRouteData on GoRouteData {
   static SearchRouteData _fromState(GoRouterState state) =>
       const SearchRouteData();
 
+  @override
   String get location => GoRouteData.$location('/search');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $UserRouteDataExtension on UserRouteData {
+mixin _$UserRouteData on GoRouteData {
   static UserRouteData _fromState(GoRouterState state) => const UserRouteData();
 
+  @override
   String get location => GoRouteData.$location('/user');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SettingsRouteExtension on SettingsRoute {
+mixin _$SettingsRoute on GoRouteData {
   static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
 
+  @override
   String get location => GoRouteData.$location('/user/settings');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ChangeLanguageRouteExtension on ChangeLanguageRoute {
+mixin _$ChangeLanguageRoute on GoRouteData {
   static ChangeLanguageRoute _fromState(GoRouterState state) =>
       const ChangeLanguageRoute();
 
+  @override
   String get location => GoRouteData.$location('/user/settings/changeLanguage');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ChangeThemeRouteExtension on ChangeThemeRoute {
+mixin _$ChangeThemeRoute on GoRouteData {
   static ChangeThemeRoute _fromState(GoRouterState state) =>
       const ChangeThemeRoute();
 
+  @override
   String get location => GoRouteData.$location('/user/settings/changeTheme');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 extension<T extends Enum> on Map<T, String> {
-  T? _$fromName(String value) =>
+  T? _$fromName(String? value) =>
       entries.where((element) => element.value == value).firstOrNull?.key;
 }
 
@@ -342,32 +406,32 @@ RouteBase get $mediaDetailsRoute => GoRouteData.$route(
   path: '/mediaDetails',
   name: 'mediaDetails',
 
-  factory: $MediaDetailsRouteExtension._fromState,
+  factory: _$MediaDetailsRoute._fromState,
   routes: [
     GoRouteData.$route(
       path: 'imageFullScreen',
 
-      factory: $ImageFullScreenRouteExtension._fromState,
+      factory: _$ImageFullScreenRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'mediaWebPage',
 
-      factory: $MediaWebScreenRouteExtension._fromState,
+      factory: _$MediaWebScreenRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'trailerPlayer',
 
-      factory: $TrailerRouteExtension._fromState,
+      factory: _$TrailerRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'seasonDetails',
 
-      factory: $SeasonDetailsRouteExtension._fromState,
+      factory: _$SeasonDetailsRoute._fromState,
     ),
   ],
 );
 
-extension $MediaDetailsRouteExtension on MediaDetailsRoute {
+mixin _$MediaDetailsRoute on GoRouteData {
   static MediaDetailsRoute _fromState(GoRouterState state) => MediaDetailsRoute(
     mediaId: state.uri.queryParameters['media-id'],
     listType: _$convertMapValue(
@@ -379,66 +443,88 @@ extension $MediaDetailsRouteExtension on MediaDetailsRoute {
     $extra: state.extra as GetAccountListCubit?,
   );
 
+  MediaDetailsRoute get _self => this as MediaDetailsRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/mediaDetails',
     queryParams: {
-      if (mediaId != null) 'media-id': mediaId,
-      if (listType != null) 'list-type': _$ListTypeEnumMap[listType!],
-      if (posterPath != null) 'poster-path': posterPath,
+      if (_self.mediaId != null) 'media-id': _self.mediaId,
+      if (_self.listType != null)
+        'list-type': _$ListTypeEnumMap[_self.listType!],
+      if (_self.posterPath != null) 'poster-path': _self.posterPath,
     },
   );
 
-  void go(BuildContext context) => context.go(location, extra: $extra);
+  @override
+  void go(BuildContext context) => context.go(location, extra: _self.$extra);
 
+  @override
   Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: $extra);
+      context.push<T>(location, extra: _self.$extra);
 
+  @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: $extra);
+      context.pushReplacement(location, extra: _self.$extra);
 
+  @override
   void replace(BuildContext context) =>
-      context.replace(location, extra: $extra);
+      context.replace(location, extra: _self.$extra);
 }
 
-extension $ImageFullScreenRouteExtension on ImageFullScreenRoute {
+mixin _$ImageFullScreenRoute on GoRouteData {
   static ImageFullScreenRoute _fromState(GoRouterState state) =>
       ImageFullScreenRoute(image: state.uri.queryParameters['image']);
 
+  ImageFullScreenRoute get _self => this as ImageFullScreenRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/mediaDetails/imageFullScreen',
-    queryParams: {if (image != null) 'image': image},
+    queryParams: {if (_self.image != null) 'image': _self.image},
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MediaWebScreenRouteExtension on MediaWebScreenRoute {
+mixin _$MediaWebScreenRoute on GoRouteData {
   static MediaWebScreenRoute _fromState(GoRouterState state) =>
       MediaWebScreenRoute(url: state.uri.queryParameters['url']);
 
+  MediaWebScreenRoute get _self => this as MediaWebScreenRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/mediaDetails/mediaWebPage',
-    queryParams: {if (url != null) 'url': url},
+    queryParams: {if (_self.url != null) 'url': _self.url},
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $TrailerRouteExtension on TrailerRoute {
+mixin _$TrailerRoute on GoRouteData {
   static TrailerRoute _fromState(GoRouterState state) => TrailerRoute(
     name: state.uri.queryParameters['name'],
     videoKey: state.uri.queryParameters['video-key'],
@@ -451,28 +537,35 @@ extension $TrailerRouteExtension on TrailerRoute {
     ),
   );
 
+  TrailerRoute get _self => this as TrailerRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/mediaDetails/trailerPlayer',
     queryParams: {
-      if (name != null) 'name': name,
-      if (videoKey != null) 'video-key': videoKey,
-      if (site != null) 'site': site,
-      if (type != null) 'type': type,
-      if (official != null) 'official': official!.toString(),
+      if (_self.name != null) 'name': _self.name,
+      if (_self.videoKey != null) 'video-key': _self.videoKey,
+      if (_self.site != null) 'site': _self.site,
+      if (_self.type != null) 'type': _self.type,
+      if (_self.official != null) 'official': _self.official!.toString(),
     },
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SeasonDetailsRouteExtension on SeasonDetailsRoute {
+mixin _$SeasonDetailsRoute on GoRouteData {
   static SeasonDetailsRoute _fromState(GoRouterState state) =>
       SeasonDetailsRoute(
         tvShowId: _$convertMapValue(
@@ -490,24 +583,32 @@ extension $SeasonDetailsRouteExtension on SeasonDetailsRoute {
         airDate: state.uri.queryParameters['air-date'],
       );
 
+  SeasonDetailsRoute get _self => this as SeasonDetailsRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/mediaDetails/seasonDetails',
     queryParams: {
-      if (tvShowId != null) 'tv-show-id': tvShowId!.toString(),
-      if (seasonNumber != null) 'season-number': seasonNumber!.toString(),
-      if (posterPath != null) 'poster-path': posterPath,
-      if (seasonName != null) 'season-name': seasonName,
-      if (airDate != null) 'air-date': airDate,
+      if (_self.tvShowId != null) 'tv-show-id': _self.tvShowId!.toString(),
+      if (_self.seasonNumber != null)
+        'season-number': _self.seasonNumber!.toString(),
+      if (_self.posterPath != null) 'poster-path': _self.posterPath,
+      if (_self.seasonName != null) 'season-name': _self.seasonName,
+      if (_self.airDate != null) 'air-date': _self.airDate,
     },
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -535,10 +636,10 @@ RouteBase get $accountMediaListRoute => GoRouteData.$route(
   path: '/accountList',
   name: 'accountList',
 
-  factory: $AccountMediaListRouteExtension._fromState,
+  factory: _$AccountMediaListRoute._fromState,
 );
 
-extension $AccountMediaListRouteExtension on AccountMediaListRoute {
+mixin _$AccountMediaListRoute on GoRouteData {
   static AccountMediaListRoute _fromState(GoRouterState state) =>
       AccountMediaListRoute(
         _$convertMapValue(
@@ -548,19 +649,27 @@ extension $AccountMediaListRouteExtension on AccountMediaListRoute {
         ),
       );
 
+  AccountMediaListRoute get _self => this as AccountMediaListRoute;
+
+  @override
   String get location => GoRouteData.$location(
     '/accountList',
     queryParams: {
-      if (listType != null) 'list-type': _$ListTypeEnumMap[listType!],
+      if (_self.listType != null)
+        'list-type': _$ListTypeEnumMap[_self.listType!],
     },
   );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }

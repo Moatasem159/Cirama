@@ -7,14 +7,12 @@ part of 'cast_model.dart';
 // **************************************************************************
 
 CreditsModel _$CreditsModelFromJson(Map<String, dynamic> json) => CreditsModel(
-  cast:
-      (json['cast'] as List<dynamic>)
-          .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  crew:
-      (json['crew'] as List<dynamic>)
-          .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  cast: (json['cast'] as List<dynamic>)
+      .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  crew: (json['crew'] as List<dynamic>)
+      .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 CastMemberModel _$CastMemberModelFromJson(Map<String, dynamic> json) =>

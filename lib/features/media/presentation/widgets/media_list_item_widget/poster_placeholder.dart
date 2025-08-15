@@ -7,8 +7,10 @@ class PosterPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+    return Container(
+      width: 130,
+      height: 200,
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       child: Skeletonizer.zone(
           child: Bone.square(
             size: size,

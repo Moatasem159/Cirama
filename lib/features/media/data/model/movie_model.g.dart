@@ -11,10 +11,9 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
   budget: json['budget'] as num? ?? 0,
   revenue: json['revenue'] as num? ?? 0,
   runtime: json['runtime'] as num,
-  keywords:
-      (readKeywords(json, 'keywords') as List<dynamic>)
-          .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  keywords: (readKeywords(json, 'keywords') as List<dynamic>)
+      .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
   id: (json['id'] as num).toInt(),
   name: readName(json, 'name') as String,
   status: json['status'] as String,
@@ -28,18 +27,15 @@ MovieModel _$MovieModelFromJson(Map<String, dynamic> json) => MovieModel(
   originalLanguage: json['original_language'] as String,
   voteCount: json['vote_count'] as num,
   voteAverage: json['vote_average'] as num,
-  genres:
-      (json['genres'] as List<dynamic>)
-          .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  productionCompanies:
-      (json['production_companies'] as List<dynamic>)
-          .map((e) => NetworkModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  videos:
-      (readVideo(json, 'videos') as List<dynamic>)
-          .map((e) => VideoModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  genres: (json['genres'] as List<dynamic>)
+      .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  productionCompanies: (json['production_companies'] as List<dynamic>)
+      .map((e) => NetworkModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  videos: (readVideo(json, 'videos') as List<dynamic>)
+      .map((e) => VideoModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
   mediaAccountDetails: MediaAccountDetailsModel.fromJson(
     json['account_states'] as Map<String, dynamic>,
   ),

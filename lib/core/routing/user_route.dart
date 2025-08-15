@@ -8,7 +8,7 @@ class UserData extends StatefulShellBranchData {
   static final GlobalKey<NavigatorState> $navigatorKey = userNavigatorKey;
 }
 
-class UserRouteData extends GoRouteData {
+class UserRouteData extends GoRouteData with _$UserRouteData {
   const UserRouteData();
 
   static final GlobalKey<NavigatorState> $parentNavigatorKey = userNavigatorKey;
@@ -17,7 +17,7 @@ class UserRouteData extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) => const UserScreen();
 }
 
-class SettingsRoute extends GoRouteData {
+class SettingsRoute extends GoRouteData with _$SettingsRoute {
   const SettingsRoute();
 
   static final GlobalKey<NavigatorState> $parentNavigatorKey = userNavigatorKey;
@@ -33,7 +33,7 @@ class SettingsRoute extends GoRouteData {
 }
 
 
-class ChangeLanguageRoute extends GoRouteData {
+class ChangeLanguageRoute extends GoRouteData with _$ChangeLanguageRoute {
   const ChangeLanguageRoute();
 
   static final GlobalKey<NavigatorState> $parentNavigatorKey = userNavigatorKey;
@@ -47,7 +47,7 @@ class ChangeLanguageRoute extends GoRouteData {
       );
 }
 
-class ChangeThemeRoute extends GoRouteData {
+class ChangeThemeRoute extends GoRouteData with _$ChangeThemeRoute {
   const ChangeThemeRoute();
 
   static final GlobalKey<NavigatorState> $parentNavigatorKey = userNavigatorKey;
@@ -61,7 +61,7 @@ class ChangeThemeRoute extends GoRouteData {
       );
 }
 @TypedGoRoute<AccountMediaListRoute>(path: "/accountList",name: "accountList")
-class AccountMediaListRoute extends GoRouteData {
+class AccountMediaListRoute extends GoRouteData with _$AccountMediaListRoute {
   final ListType ?listType;
   const AccountMediaListRoute(this.listType);
   @override

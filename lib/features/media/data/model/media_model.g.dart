@@ -34,18 +34,15 @@ MediaAccountDetailsModel _$MediaAccountDetailsModelFromJson(
 );
 
 GalleryModel _$GalleryModelFromJson(Map<String, dynamic> json) => GalleryModel(
-  backdrops:
-      (json['backdrops'] as List<dynamic>)
-          .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  logos:
-      (json['logos'] as List<dynamic>)
-          .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  posters:
-      (json['posters'] as List<dynamic>)
-          .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  backdrops: (json['backdrops'] as List<dynamic>)
+      .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  logos: (json['logos'] as List<dynamic>)
+      .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  posters: (json['posters'] as List<dynamic>)
+      .map((e) => ImageModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 ImageModel _$ImageModelFromJson(Map<String, dynamic> json) => ImageModel(

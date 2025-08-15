@@ -11,18 +11,15 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) => TvShowModel(
   numberOfEpisodes: (json['number_of_episodes'] as num).toInt(),
   type: json['type'] as String,
   lastAirDate: json['last_air_date'] as String,
-  episodeRunTime:
-      (json['episode_run_time'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
-          .toList(),
-  keywords:
-      (readKeywords(json, 'keywords') as List<dynamic>)
-          .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  seasons:
-      (json['seasons'] as List<dynamic>)
-          .map((e) => TvShowSeasonModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  episodeRunTime: (json['episode_run_time'] as List<dynamic>)
+      .map((e) => (e as num).toInt())
+      .toList(),
+  keywords: (readKeywords(json, 'keywords') as List<dynamic>)
+      .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  seasons: (json['seasons'] as List<dynamic>)
+      .map((e) => TvShowSeasonModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
   id: (json['id'] as num).toInt(),
   name: readName(json, 'name') as String,
   status: json['status'] as String,
@@ -37,18 +34,15 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) => TvShowModel(
   voteCount: json['vote_count'] as num,
   voteAverage: json['vote_average'] as num,
   credits: CreditsModel.fromJson(json['credits'] as Map<String, dynamic>),
-  genres:
-      (json['genres'] as List<dynamic>)
-          .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  productionCompanies:
-      (json['production_companies'] as List<dynamic>)
-          .map((e) => NetworkModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  videos:
-      (readVideo(json, 'videos') as List<dynamic>)
-          .map((e) => VideoModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  genres: (json['genres'] as List<dynamic>)
+      .map((e) => KeywordModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  productionCompanies: (json['production_companies'] as List<dynamic>)
+      .map((e) => NetworkModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  videos: (readVideo(json, 'videos') as List<dynamic>)
+      .map((e) => VideoModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
   mediaAccountDetails: MediaAccountDetailsModel.fromJson(
     json['account_states'] as Map<String, dynamic>,
   ),
@@ -63,10 +57,9 @@ TvShowSeasonModel _$TvShowSeasonModelFromJson(Map<String, dynamic> json) =>
       airDate: json['air_date'] as String?,
       episodeCount: (json['episode_count'] as num?)?.toInt(),
       id: (json['id'] as num).toInt(),
-      episodes:
-          (json['episodes'] as List<dynamic>?)
-              ?.map((e) => EpisodeModel.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      episodes: (json['episodes'] as List<dynamic>?)
+          ?.map((e) => EpisodeModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String,
       overview: json['overview'] as String,
       posterPath: json['poster_path'] as String?,
@@ -83,12 +76,10 @@ EpisodeModel _$EpisodeModelFromJson(Map<String, dynamic> json) => EpisodeModel(
   seasonNumber: (json['season_number'] as num).toInt(),
   showId: (json['show_id'] as num).toInt(),
   stillPath: json['still_path'] as String?,
-  crew:
-      (json['crew'] as List<dynamic>)
-          .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  guestStars:
-      (json['guest_stars'] as List<dynamic>)
-          .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  crew: (json['crew'] as List<dynamic>)
+      .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  guestStars: (json['guest_stars'] as List<dynamic>)
+      .map((e) => CastMemberModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );

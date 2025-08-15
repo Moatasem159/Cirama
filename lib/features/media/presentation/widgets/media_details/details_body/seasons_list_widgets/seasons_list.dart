@@ -29,12 +29,12 @@ class SeasonsListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 6,
+      spacing:20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(context.locale.seasons(tvShow.numberOfSeasons), style: context.titleMedium),
         SizedBox(
-          height: 200,
+          height:306,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount: tvShow.seasons.length,

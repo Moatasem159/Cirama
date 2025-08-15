@@ -11,3 +11,10 @@ extension HiveRegistrar on HiveInterface {
     registerAdapter(PersonSearchModelAdapter());
   }
 }
+
+extension IsolatedHiveRegistrar on IsolatedHiveInterface {
+  void registerAdapters() {
+    registerAdapter(MediaSearchModelAdapter());
+    registerAdapter(PersonSearchModelAdapter());
+  }
+}

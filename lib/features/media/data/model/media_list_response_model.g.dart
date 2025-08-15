@@ -10,10 +10,9 @@ MediaListResponseModel _$MediaListResponseModelFromJson(
   Map<String, dynamic> json,
 ) => MediaListResponseModel(
   page: (json['page'] as num).toInt(),
-  mediaList:
-      (json['results'] as List<dynamic>)
-          .map((e) => MediaListItemModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  mediaList: (json['results'] as List<dynamic>)
+      .map((e) => MediaListItemModel.fromJson(e as Map<String, dynamic>))
+      .toList(),
   totalPages: (json['total_pages'] as num).toInt(),
   totalResults: (json['total_results'] as num).toInt(),
 );

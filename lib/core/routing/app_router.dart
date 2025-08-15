@@ -48,7 +48,7 @@ class AppRouter {
 }
 
 @TypedGoRoute<InitialRoute>(path: '/')
-class InitialRoute extends GoRouteData {
+class InitialRoute extends GoRouteData with _$InitialRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) => const WelcomeScreen();
 
@@ -63,7 +63,7 @@ class InitialRoute extends GoRouteData {
 }
 
 @TypedGoRoute<LoginRoute>(path: '/login/:requestToken')
-class LoginRoute extends GoRouteData {
+class LoginRoute extends GoRouteData with _$LoginRoute {
   final AuthCubit $extra;
   final String requestToken;
 

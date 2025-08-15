@@ -1,9 +1,8 @@
-part of 'media_list_item_widget.dart';
-
-class MediaImageBuilder extends StatelessWidget {
+part of "season_poster_image.dart";
+class SeasonPosterImageBuilder extends StatelessWidget {
   final ImageProvider image;
 
-  const MediaImageBuilder({super.key, required this.image});
+  const SeasonPosterImageBuilder({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {

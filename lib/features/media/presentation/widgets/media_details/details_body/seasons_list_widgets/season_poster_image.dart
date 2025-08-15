@@ -4,6 +4,7 @@ import 'package:movies_app/core/utils/image_url.dart';
 import 'package:movies_app/features/media/presentation/widgets/media_list_item_widget/poster_error_widget.dart';
 import 'package:movies_app/features/media/presentation/widgets/media_list_item_widget/poster_placeholder.dart';
 
+part 'season_poster_image_builder.dart';
 class SeasonPosterImage extends StatelessWidget {
   final String? image;
 
@@ -16,10 +17,8 @@ class SeasonPosterImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: CachedNetworkImage(
-          width: 130,
-          height: 200,
-          fit: BoxFit.cover,
           imageUrl: ImageUrl.posterUrl(image??""),
+          imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) => SeasonPosterImageBuilder(image: imageProvider),
           placeholder: (BuildContext context, String url) => PosterPlaceholder(),
           errorWidget: (BuildContext context, String url, Object error) =>PosterErrorWidget(),
         ),

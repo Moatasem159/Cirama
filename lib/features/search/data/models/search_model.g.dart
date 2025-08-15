@@ -21,14 +21,13 @@ MediaSearchModel _$MediaSearchModelFromJson(Map<String, dynamic> json) =>
 PersonSearchModel _$PersonSearchModelFromJson(Map<String, dynamic> json) =>
     PersonSearchModel(
       department: json['known_for_department'] as String?,
-      knownFor:
-          (json['known_for'] as List<dynamic>)
-              .map(
-                (e) => const SearchModelConverter().fromJson(
-                  e as Map<String, dynamic>,
-                ),
-              )
-              .toList(),
+      knownFor: (json['known_for'] as List<dynamic>)
+          .map(
+            (e) => const SearchModelConverter().fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
       id: (json['id'] as num).toInt(),
       mediaType: json['media_type'] as String,
       name: readName(json, 'name') as String,

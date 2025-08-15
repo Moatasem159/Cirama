@@ -1,6 +1,5 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -61,7 +60,7 @@ class AppLocalizationsAr extends AppLocalizations {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
     );
-    final String _ = countNumberFormat.format(count);
+    final String countString = countNumberFormat.format(count);
 
     String _temp0 = intl.Intl.selectLogic(type, {
       'movie': 'أفلام',
