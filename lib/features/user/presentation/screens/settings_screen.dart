@@ -15,38 +15,36 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppTheme.systemUiOverlayStyle(context),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            titleSpacing: 0,
-            title: Text(context.locale.settings),
-            titleTextStyle: context.titleMedium.copyWith(
-              fontWeight: FontWeight.normal,
+      child: Scaffold(
+        appBar: AppBar(
+          titleSpacing: 0,
+          title: Text(context.locale.settings),
+          titleTextStyle: context.titleMedium.copyWith(
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        body: Column(
+          children: [
+            CustomListTile(
+              onTap: ()=>ChangeLanguageRoute().push(context),
+              leading: Icon(Icons.language_rounded),
+              title: context.locale.language,
+              subtitle: context.read<SettingsCubit>().getLocalName(context),
             ),
-          ),
-          body: Column(
-            children: [
-              CustomListTile(
-                onTap: ()=>ChangeLanguageRoute().push(context),
-                leading: Icon(Icons.language_rounded),
-                title: context.locale.language,
-                subtitle: context.read<SettingsCubit>().getLocalName(context),
+            BlocBuilder<SettingsCubit, SettingsState>(
+              buildWhen: (SettingsState previous, SettingsState current) =>
+                  previous.themeMode != current.themeMode,
+              builder: (BuildContext context, SettingsState state) => CustomListTile(
+                onTap: ()=>ChangeThemeRoute().push(context),
+                leading: Icon(Icons.color_lens_outlined),
+                title: context.locale.theme,
+                subtitle: context.read<SettingsCubit>().getThemeModeName(context),
               ),
-              BlocBuilder<SettingsCubit, SettingsState>(
-                buildWhen: (SettingsState previous, SettingsState current) =>
-                    previous.themeMode != current.themeMode,
-                builder: (BuildContext context, SettingsState state) => CustomListTile(
-                  onTap: ()=>ChangeThemeRoute().push(context),
-                  leading: Icon(Icons.color_lens_outlined),
-                  title: context.locale.theme,
-                  subtitle: context.read<SettingsCubit>().getThemeModeName(context),
-                ),
-              ),
-              LogOutButton(),
-              Spacer(),
-              Version(),
-            ],
-          ),
+            ),
+            LogOutButton(),
+            Spacer(),
+            Version(),
+          ],
         ),
       ),
     );

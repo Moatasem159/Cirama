@@ -10,7 +10,7 @@ part of 'app_router.dart';
     TypedGoRoute<SeasonDetailsRoute>(path: "seasonDetails"),
   ],
 )
-class MediaDetailsRoute extends GoRouteData with _$MediaDetailsRoute {
+class MediaDetailsRoute extends GoRouteData with $MediaDetailsRoute {
   final String? posterPath;
   final String? mediaId;
   final ListType? listType;
@@ -54,7 +54,7 @@ class MediaDetailsRoute extends GoRouteData with _$MediaDetailsRoute {
   }
 }
 
-class ImageFullScreenRoute extends GoRouteData with _$ImageFullScreenRoute {
+class ImageFullScreenRoute extends GoRouteData with $ImageFullScreenRoute {
   final String? image;
 
   const ImageFullScreenRoute({required this.image});
@@ -63,7 +63,7 @@ class ImageFullScreenRoute extends GoRouteData with _$ImageFullScreenRoute {
   Widget build(BuildContext context, GoRouterState state) => ImageFullscreen(image: image);
 }
 
-class MediaWebScreenRoute extends GoRouteData with _$MediaWebScreenRoute {
+class MediaWebScreenRoute extends GoRouteData with $MediaWebScreenRoute {
   final String? url;
 
   const MediaWebScreenRoute({required this.url});
@@ -78,7 +78,7 @@ class MediaWebScreenRoute extends GoRouteData with _$MediaWebScreenRoute {
       );
 }
 
-class TrailerRoute extends GoRouteData with _$TrailerRoute {
+class TrailerRoute extends GoRouteData with $TrailerRoute {
   final String? name;
   final String? videoKey;
   final String? site;
@@ -108,7 +108,7 @@ class TrailerRoute extends GoRouteData with _$TrailerRoute {
       );
 }
 
-class SeasonDetailsRoute extends GoRouteData with _$SeasonDetailsRoute {
+class SeasonDetailsRoute extends GoRouteData with $SeasonDetailsRoute {
   final int ?tvShowId;
   final int ?seasonNumber;
   final String? posterPath;

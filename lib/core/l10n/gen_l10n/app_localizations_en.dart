@@ -57,11 +57,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String media(num count, String type) {
-    final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
-      locale: localeName,
-    );
-    final String countString = countNumberFormat.format(count);
-
     String _temp0 = intl.Intl.selectLogic(type, {
       'movie': 'Movies',
       'tv': 'Tv shows',

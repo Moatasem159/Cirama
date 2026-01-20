@@ -26,6 +26,7 @@ class Cirama extends StatelessWidget {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             locale: Locale(state.locale),
+            scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
             themeMode: state.themeMode,
             theme: theme.lightTheme,
             darkTheme: theme.dartTheme,

@@ -50,7 +50,7 @@ class MediaListItemWidget extends StatelessWidget {
           }
         },
         child: CachedNetworkImage(
-            imageUrl: ImageUrl.posterUrl(media.posterPath),
+            imageUrl: ImageUrl.logoUrl(media.posterPath),
             imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) =>
                 MediaImageBuilder(image: imageProvider),
             placeholder: (BuildContext context, String url) => const PosterPlaceholder(),

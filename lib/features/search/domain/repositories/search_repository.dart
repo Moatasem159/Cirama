@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movies_app/core/api/api_result.dart';
-import 'package:movies_app/core/api/network_info.dart';
 import 'package:movies_app/features/search/data/repositories/search_repository_impl.dart';
 import 'package:movies_app/features/search/data/sources/search_local_data_source.dart';
 import 'package:movies_app/features/search/data/sources/search_remote_data_source.dart';
@@ -16,7 +15,6 @@ import 'package:movies_app/features/search/domain/entities/search_response.dart'
 abstract class SearchRepository {
   @factoryMethod
   const factory SearchRepository(
-    NetworkInfo networkInfo,
     SearchRemoteDataSource searchRemoteDataSource,
     SearchLocalDataSource searchLocalDataSource,
   ) = SearchRepositoryImpl;

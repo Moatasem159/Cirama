@@ -1,6 +1,8 @@
 part of 'playing_now_widget.dart';
+
 class _CarouselBuilder extends StatelessWidget {
   final List<Media> mediaList;
+
   const _CarouselBuilder(this.mediaList);
 
   @override
@@ -9,10 +11,9 @@ class _CarouselBuilder extends StatelessWidget {
       itemCount: mediaList.length,
       itemBuilder: (_, index, _) => _CarousalItem(mediaList[index]),
       options: CarouselOptions(
-        enlargeCenterPage: true,
-        autoPlay: context.enabled ? false : true,
+        autoPlay: false,
         viewportFraction: 0.8,
-        height: context.screenHeight/5.5,
+        height: context.screenHeight / 5.5,
         autoPlayInterval: const Duration(seconds: 3),
       ),
     );

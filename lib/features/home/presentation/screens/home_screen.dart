@@ -18,12 +18,10 @@ class HomeScreen extends StatelessWidget {
             navigationShell.goBranch(0);
           }
         },
-        child: SafeArea(
-          child: Scaffold(
-            body: navigationShell,
-            bottomNavigationBar: MainBottomNavbar(
-              navigationShell: navigationShell,
-            ),
+        child: Scaffold(
+          body: navigationShell,
+          bottomNavigationBar: MainBottomNavbar(
+            navigationShell: navigationShell,
           ),
         ),
       ),

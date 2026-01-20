@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -51,44 +51,36 @@ extension GetItInjectableX on _i174.GetIt {
       () => const _i259.SearchLocalDataSource(),
     );
     gh.lazySingleton<_i368.MediaRemoteDataSource>(
-      () => _i368.MediaRemoteDataSource.new(gh<_i361.Dio>()),
+      () => _i368.MediaRemoteDataSource(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i811.SearchRemoteDataSource>(
-      () => _i811.SearchRemoteDataSource.new(gh<_i361.Dio>()),
+      () => _i811.SearchRemoteDataSource(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i481.AccountDataSource>(
-      () => _i481.AccountDataSource.new(gh<_i361.Dio>()),
+      () => _i481.AccountDataSource(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i423.AuthDataSource>(
-      () => _i423.AuthDataSource.new(gh<_i361.Dio>()),
-    );
-    gh.lazySingleton<_i741.AuthLocalDataSource>(
-      () => _i741.AuthLocalDataSource.new(gh<_i320.SharedPreferencesFactory>()),
-    );
-    gh.lazySingleton<_i939.AuthRepository>(
-      () => _i939.AuthRepository.new(
-        gh<_i715.NetworkInfo>(),
-        gh<_i423.AuthDataSource>(),
-        gh<_i741.AuthLocalDataSource>(),
-      ),
+      () => _i423.AuthDataSource(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i117.AccountRepository>(
-      () => _i117.AccountRepository.new(
-        gh<_i715.NetworkInfo>(),
-        gh<_i481.AccountDataSource>(),
-      ),
+      () => _i117.AccountRepository(gh<_i481.AccountDataSource>()),
+    );
+    gh.lazySingleton<_i989.MediaRepository>(
+      () => _i989.MediaRepository(gh<_i368.MediaRemoteDataSource>()),
     );
     gh.lazySingleton<_i357.SearchRepository>(
-      () => _i357.SearchRepository.new(
-        gh<_i715.NetworkInfo>(),
+      () => _i357.SearchRepository(
         gh<_i811.SearchRemoteDataSource>(),
         gh<_i259.SearchLocalDataSource>(),
       ),
     );
-    gh.lazySingleton<_i989.MediaRepository>(
-      () => _i989.MediaRepository.new(
-        gh<_i715.NetworkInfo>(),
-        gh<_i368.MediaRemoteDataSource>(),
+    gh.lazySingleton<_i741.AuthLocalDataSource>(
+      () => _i741.AuthLocalDataSource(gh<_i320.SharedPreferencesFactory>()),
+    );
+    gh.lazySingleton<_i939.AuthRepository>(
+      () => _i939.AuthRepository(
+        gh<_i423.AuthDataSource>(),
+        gh<_i741.AuthLocalDataSource>(),
       ),
     );
     gh.lazySingleton<_i79.GetMediaListUseCase>(

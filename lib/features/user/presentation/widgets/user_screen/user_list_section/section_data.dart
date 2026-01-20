@@ -13,7 +13,7 @@ class _SectionData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _ListContainer(icon, movieTitle, iconColor),
         _ListContainer(icon, tvTitle, iconColor),

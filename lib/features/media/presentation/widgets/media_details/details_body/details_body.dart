@@ -45,7 +45,6 @@ class DetailsBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10, left: 10, bottom: 20),
       child: CustomScrollView(
-        scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
         physics: const NeverScrollableScrollPhysics(),
         slivers: [
           SliverOverlapInjector(handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context)),

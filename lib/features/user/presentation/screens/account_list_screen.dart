@@ -27,30 +27,28 @@ class AccountListScreen extends StatelessWidget {
       )..getMediaList(),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: AppTheme.systemUiOverlayStyle(context),
-        child: SafeArea(
-          child: Scaffold(
-            appBar: AppBar(
-              leadingWidth: 40,
-              leading: IconButton(
-                onPressed: context.pop,
-                splashRadius: 20,
-                iconSize: context.screenWidth / 18,
-                padding: EdgeInsets.zero,
-                icon: Icon(
-                  Icons.arrow_back,
-                  size: context.screenWidth / 18,
-                ),
-              ),
-              title: Text(
-                context.locale.userLists(listType.name),
-                style: context.titleMedium.copyWith(
-                  fontWeight: FontWeight.normal,
-                ),
-                textScaler: TextScaler.linear(context.screenWidth / 350),
+        child: Scaffold(
+          appBar: AppBar(
+            leadingWidth: 40,
+            leading: IconButton(
+              onPressed: context.pop,
+              splashRadius: 20,
+              iconSize: context.screenWidth / 18,
+              padding: EdgeInsets.zero,
+              icon: Icon(
+                Icons.arrow_back,
+                size: context.screenWidth / 18,
               ),
             ),
-            body: const AccountListScreenBody(),
+            title: Text(
+              context.locale.userLists(listType.name),
+              style: context.titleMedium.copyWith(
+                fontWeight: FontWeight.normal,
+              ),
+              textScaler: TextScaler.linear(context.screenWidth / 350),
+            ),
           ),
+          body: const AccountListScreenBody(),
         ),
       ),
     );

@@ -14,9 +14,11 @@ class GetMediaDetailCubit extends Cubit<GetMediaDetailState> {
   GetMediaDetailCubit(this._mediaRepository, this.params, this.listType) : super(const GetMediaDetailLoading());
   Future<void> getMediaDetails() async {
     final ApiResult<MediaDetails> result = await _mediaRepository.getMediaDetails(params);
-    result.when(
+    if(!isClosed) {
+      result.when(
       success: (MediaDetails data) => emit(GetMediaDetailSuccess(mediaDetails: data)),
       failure: (ErrorHandler handler) => emit(GetMediaDetailError(message: handler.message.message)),
     );
+    }
   }
 }

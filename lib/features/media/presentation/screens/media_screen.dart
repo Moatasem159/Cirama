@@ -13,9 +13,8 @@ class MediaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      scrollBehavior: const ScrollBehavior().copyWith(overscroll: false),
       slivers: [
-        const SliverVerticalSpace(20),
+        const SliverVerticalSpace(45),
         MediaAppBar(mediaType: mediaType),
         PlayingNowWidget(
           listType:

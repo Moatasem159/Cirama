@@ -16,42 +16,39 @@ class UserScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<GetAccountDataCubit>(
       create: (BuildContext context) => GetAccountDataCubit(GetIt.I.get())..getAccountData(),
-      child: ScrollConfiguration(
-        behavior: const ScrollBehavior().copyWith(overscroll: false),
-        child: ListView(
-          children: [
-            const VerticalSpace(8),
-            const AccountAppBar(),
-            const VerticalSpace(10),
-            CustomListTile(
-              onTap: ()=>SettingsRoute().push(context),
-              leading: Icon(Icons.settings_rounded),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-              title: context.locale.settings,
-            ),
-            UserListSection(
-              sectionTitle: context.locale.ratings,
-              icon: Icons.stars_rounded,
-              iconColor: Colors.yellow,
-              movieTitle: ContainerTitle.ratedMovies,
-              tvTitle: ContainerTitle.ratedTv,
-            ),
-            UserListSection(
-              sectionTitle: context.locale.favorites,
-              icon: Icons.favorite_border_rounded,
-              iconColor: Colors.red,
-              movieTitle: ContainerTitle.favoriteMovies,
-              tvTitle: ContainerTitle.favoriteTv,
-            ),
-            UserListSection(
-              sectionTitle: context.locale.watchlist,
-              icon: Icons.bookmarks_rounded,
-              iconColor: Colors.green,
-              movieTitle: ContainerTitle.watchlistMovies,
-              tvTitle: ContainerTitle.watchlistTv,
-            ),
-          ],
-        ),
+      child: ListView(
+        children: [
+          const VerticalSpace(10),
+          const AccountAppBar(),
+          const VerticalSpace(10),
+          CustomListTile(
+            onTap: ()=>SettingsRoute().push(context),
+            leading: Icon(Icons.settings_rounded),
+            trailing: Icon(Icons.arrow_forward_ios_rounded),
+            title: context.locale.settings,
+          ),
+          UserListSection(
+            sectionTitle: context.locale.ratings,
+            icon: Icons.stars_rounded,
+            iconColor: Colors.yellow,
+            movieTitle: ContainerTitle.ratedMovies,
+            tvTitle: ContainerTitle.ratedTv,
+          ),
+          UserListSection(
+            sectionTitle: context.locale.favorites,
+            icon: Icons.favorite_border_rounded,
+            iconColor: Colors.red,
+            movieTitle: ContainerTitle.favoriteMovies,
+            tvTitle: ContainerTitle.favoriteTv,
+          ),
+          UserListSection(
+            sectionTitle: context.locale.watchlist,
+            icon: Icons.bookmarks_rounded,
+            iconColor: Colors.green,
+            movieTitle: ContainerTitle.watchlistMovies,
+            tvTitle: ContainerTitle.watchlistTv,
+          ),
+        ],
       ),
     );
   }

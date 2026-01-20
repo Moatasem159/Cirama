@@ -10,18 +10,7 @@
   "inMedia": "{type, select,movie{In Movies} tv{In Tv shows} other{In media}}",
   "media": "{count, plural,=1{{type, select,movie{Movie} tv{Tv show} other{Media}}} other{{type, select, movie{Movies} tv{Tv shows} other{Media}}}}",
   "@media": {
-    "description": "A plural message for movies or TV shows",
-    "placeholders": {
-      "count": {
-        "type": "num",
-        "format": "compact",
-        "description": "The count of movies or TV shows."
-      },
-      "type": {
-        "type": "String",
-        "description": "The type of media, either 'movie' or 'tv_show'."
-      }
-    }
+    "description": "A plural message for movies or TV shows"
   },
   "listType": "{type, select, now_playing {Playing now} on_the_air {Playing now} popular {Popular} trending {Trending} top_rated {Top Rated}other{}}",
   "onMediaListType": "{type, select, now_playing {On Playing now} on_the_air {On Playing now} popular {On popular} trending {On trending} top_rated {On top rated}other{}}",

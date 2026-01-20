@@ -1,7 +1,10 @@
 part of 'playing_now_widget.dart';
+
 class _CarousalItem extends StatelessWidget {
   final Media media;
+
   const _CarousalItem(this.media);
+
   @override
   Widget build(BuildContext context) {
     return Skeleton.replace(
@@ -24,7 +27,7 @@ class _CarousalItem extends StatelessWidget {
           }
         },
         child: CachedNetworkImage(
-          imageUrl: ImageUrl.backDropsUrl(media.backdropPath),
+          imageUrl: ImageUrl.posterUrl(media.backdropPath),
           imageBuilder: (_, ImageProvider<Object> imageProvider) =>
               _CarousalImageBuilder(imageProvider, media),
           placeholder: (context, url) => const _CarousalPlaceholder(),

@@ -18,44 +18,42 @@ class _CustomSearchBarState extends State<_CustomSearchBar> {
   }
   @override
   Widget build(BuildContext context) {
-    return  SliverAppBar(
+    return SliverAppBar(
       pinned: true,
-      flexibleSpace: Container(
-        color: context.scaffoldBackgroundColor,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-          child: SearchBar(
-            controller: _controller,
-            leading: Icon(
-              Icons.search_rounded,
+      toolbarHeight: 20,
+      flexibleSpace: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        child: SearchBar(
+          controller: _controller,
+          leading: Icon(
+            Icons.search_rounded,
+            color: context.theme.primaryColor,
+          ),
+          hintStyle: WidgetStatePropertyAll(
+            context.labelMedium.copyWith(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          hintText: context.locale.searchHint,
+          trailing: [
+            IconButton(
+              onPressed: () {
+                _controller.clear();
+                context.read<SearchBloc>().add(LocalSearch());
+              },
+              icon: Icon(Icons.clear_rounded),
               color: context.theme.primaryColor,
             ),
-            hintStyle: WidgetStatePropertyAll(
-              context.labelMedium.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
+          ],
+          backgroundColor: WidgetStatePropertyAll(context.scaffoldBackgroundColor),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-            hintText: context.locale.searchHint,
-            trailing: [
-              IconButton(
-                onPressed: () {
-                  _controller.clear();
-                  context.read<SearchBloc>().add(LocalSearch());
-                },
-                icon: Icon(Icons.clear_rounded),
-                color: context.theme.primaryColor,
-              ),
-            ],
-            backgroundColor: WidgetStatePropertyAll(context.scaffoldBackgroundColor),
-            shape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onChanged: (String value) =>context.read<SearchBloc>().add(Search(query: value)),
-          )
           ),
-      ),
+          onChanged: (String value) =>context.read<SearchBloc>().add(Search(query: value)),
+        )
+        ),
       );
   }
 }

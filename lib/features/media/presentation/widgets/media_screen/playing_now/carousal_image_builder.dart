@@ -8,11 +8,12 @@ class _CarousalImageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-      margin: const EdgeInsets.symmetric(vertical: 2),
+      padding: const .symmetric(horizontal: 6, vertical: 6),
+      margin: const .symmetric(vertical: 2,horizontal: 6),
       height: context.screenHeight/5.5,
+      width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: .circular(15),
         image: DecorationImage(fit: BoxFit.cover, image: image),
       ),
       child: _CarousalImageData(media),

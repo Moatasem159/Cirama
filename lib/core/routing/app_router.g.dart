@@ -15,9 +15,9 @@ List<RouteBase> get $appRoutes => [
 ];
 
 RouteBase get $initialRoute =>
-    GoRouteData.$route(path: '/', factory: _$InitialRoute._fromState);
+    GoRouteData.$route(path: '/', factory: $InitialRoute._fromState);
 
-mixin _$InitialRoute on GoRouteData {
+mixin $InitialRoute on GoRouteData {
   static InitialRoute _fromState(GoRouterState state) => InitialRoute();
 
   @override
@@ -39,11 +39,10 @@ mixin _$InitialRoute on GoRouteData {
 
 RouteBase get $loginRoute => GoRouteData.$route(
   path: '/login/:requestToken',
-
-  factory: _$LoginRoute._fromState,
+  factory: $LoginRoute._fromState,
 );
 
-mixin _$LoginRoute on GoRouteData {
+mixin $LoginRoute on GoRouteData {
   static LoginRoute _fromState(GoRouterState state) => LoginRoute(
     requestToken: state.pathParameters['requestToken']!,
     $extra: state.extra as AuthCubit,
@@ -80,14 +79,12 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/movie',
           name: 'movie',
-
-          factory: _$MovieRouteData._fromState,
+          factory: $MovieRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'seeMoreMovies/:listType',
               name: 'seeMoreMovies',
-
-              factory: _$SeeMoreMoviesRoute._fromState,
+              factory: $SeeMoreMoviesRoute._fromState,
             ),
           ],
         ),
@@ -98,14 +95,12 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/tv',
           name: 'tv',
-
-          factory: _$TvRouteData._fromState,
+          factory: $TvRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'seeMoreTvShows/:listType',
               name: 'seeMoreTvShows',
-
-              factory: _$SeeMoreTvShowsRoute._fromState,
+              factory: $SeeMoreTvShowsRoute._fromState,
             ),
           ],
         ),
@@ -115,47 +110,37 @@ RouteBase get $homeShell => StatefulShellRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: '/search',
-
-          factory: _$SearchRouteData._fromState,
+          factory: $SearchRouteData._fromState,
         ),
       ],
     ),
     StatefulShellBranchData.$branch(
       navigatorKey: UserData.$navigatorKey,
       initialLocation: UserData.$initialLocation,
-
       routes: [
         GoRouteData.$route(
           path: '/user',
           name: 'user',
-
           parentNavigatorKey: UserRouteData.$parentNavigatorKey,
-
-          factory: _$UserRouteData._fromState,
+          factory: $UserRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'settings',
               name: 'settings',
-
               parentNavigatorKey: SettingsRoute.$parentNavigatorKey,
-
-              factory: _$SettingsRoute._fromState,
+              factory: $SettingsRoute._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'changeLanguage',
                   name: 'changeLanguage',
-
                   parentNavigatorKey: ChangeLanguageRoute.$parentNavigatorKey,
-
-                  factory: _$ChangeLanguageRoute._fromState,
+                  factory: $ChangeLanguageRoute._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'changeTheme',
                   name: 'changeTheme',
-
                   parentNavigatorKey: ChangeThemeRoute.$parentNavigatorKey,
-
-                  factory: _$ChangeThemeRoute._fromState,
+                  factory: $ChangeThemeRoute._fromState,
                 ),
               ],
             ),
@@ -170,7 +155,7 @@ extension $HomeShellExtension on HomeShell {
   static HomeShell _fromState(GoRouterState state) => const HomeShell();
 }
 
-mixin _$MovieRouteData on GoRouteData {
+mixin $MovieRouteData on GoRouteData {
   static MovieRouteData _fromState(GoRouterState state) =>
       const MovieRouteData();
 
@@ -191,7 +176,7 @@ mixin _$MovieRouteData on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$SeeMoreMoviesRoute on GoRouteData {
+mixin $SeeMoreMoviesRoute on GoRouteData {
   static SeeMoreMoviesRoute _fromState(GoRouterState state) =>
       SeeMoreMoviesRoute(
         listType: _$ListTypeEnumMap._$fromName(
@@ -242,7 +227,7 @@ const _$ListTypeEnumMap = {
   ListType.noTvShowList: 'no-tv-show-list',
 };
 
-mixin _$TvRouteData on GoRouteData {
+mixin $TvRouteData on GoRouteData {
   static TvRouteData _fromState(GoRouterState state) => const TvRouteData();
 
   @override
@@ -262,7 +247,7 @@ mixin _$TvRouteData on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$SeeMoreTvShowsRoute on GoRouteData {
+mixin $SeeMoreTvShowsRoute on GoRouteData {
   static SeeMoreTvShowsRoute _fromState(GoRouterState state) =>
       SeeMoreTvShowsRoute(
         listType: _$ListTypeEnumMap._$fromName(
@@ -294,7 +279,7 @@ mixin _$SeeMoreTvShowsRoute on GoRouteData {
       context.replace(location, extra: _self.$extra);
 }
 
-mixin _$SearchRouteData on GoRouteData {
+mixin $SearchRouteData on GoRouteData {
   static SearchRouteData _fromState(GoRouterState state) =>
       const SearchRouteData();
 
@@ -315,7 +300,7 @@ mixin _$SearchRouteData on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$UserRouteData on GoRouteData {
+mixin $UserRouteData on GoRouteData {
   static UserRouteData _fromState(GoRouterState state) => const UserRouteData();
 
   @override
@@ -335,7 +320,7 @@ mixin _$UserRouteData on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$SettingsRoute on GoRouteData {
+mixin $SettingsRoute on GoRouteData {
   static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
 
   @override
@@ -355,7 +340,7 @@ mixin _$SettingsRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$ChangeLanguageRoute on GoRouteData {
+mixin $ChangeLanguageRoute on GoRouteData {
   static ChangeLanguageRoute _fromState(GoRouterState state) =>
       const ChangeLanguageRoute();
 
@@ -376,7 +361,7 @@ mixin _$ChangeLanguageRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$ChangeThemeRoute on GoRouteData {
+mixin $ChangeThemeRoute on GoRouteData {
   static ChangeThemeRoute _fromState(GoRouterState state) =>
       const ChangeThemeRoute();
 
@@ -405,33 +390,28 @@ extension<T extends Enum> on Map<T, String> {
 RouteBase get $mediaDetailsRoute => GoRouteData.$route(
   path: '/mediaDetails',
   name: 'mediaDetails',
-
-  factory: _$MediaDetailsRoute._fromState,
+  factory: $MediaDetailsRoute._fromState,
   routes: [
     GoRouteData.$route(
       path: 'imageFullScreen',
-
-      factory: _$ImageFullScreenRoute._fromState,
+      factory: $ImageFullScreenRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'mediaWebPage',
-
-      factory: _$MediaWebScreenRoute._fromState,
+      factory: $MediaWebScreenRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'trailerPlayer',
-
-      factory: _$TrailerRoute._fromState,
+      factory: $TrailerRoute._fromState,
     ),
     GoRouteData.$route(
       path: 'seasonDetails',
-
-      factory: _$SeasonDetailsRoute._fromState,
+      factory: $SeasonDetailsRoute._fromState,
     ),
   ],
 );
 
-mixin _$MediaDetailsRoute on GoRouteData {
+mixin $MediaDetailsRoute on GoRouteData {
   static MediaDetailsRoute _fromState(GoRouterState state) => MediaDetailsRoute(
     mediaId: state.uri.queryParameters['media-id'],
     listType: _$convertMapValue(
@@ -472,7 +452,7 @@ mixin _$MediaDetailsRoute on GoRouteData {
       context.replace(location, extra: _self.$extra);
 }
 
-mixin _$ImageFullScreenRoute on GoRouteData {
+mixin $ImageFullScreenRoute on GoRouteData {
   static ImageFullScreenRoute _fromState(GoRouterState state) =>
       ImageFullScreenRoute(image: state.uri.queryParameters['image']);
 
@@ -498,7 +478,7 @@ mixin _$ImageFullScreenRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$MediaWebScreenRoute on GoRouteData {
+mixin $MediaWebScreenRoute on GoRouteData {
   static MediaWebScreenRoute _fromState(GoRouterState state) =>
       MediaWebScreenRoute(url: state.uri.queryParameters['url']);
 
@@ -524,7 +504,7 @@ mixin _$MediaWebScreenRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$TrailerRoute on GoRouteData {
+mixin $TrailerRoute on GoRouteData {
   static TrailerRoute _fromState(GoRouterState state) => TrailerRoute(
     name: state.uri.queryParameters['name'],
     videoKey: state.uri.queryParameters['video-key'],
@@ -565,7 +545,7 @@ mixin _$TrailerRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-mixin _$SeasonDetailsRoute on GoRouteData {
+mixin $SeasonDetailsRoute on GoRouteData {
   static SeasonDetailsRoute _fromState(GoRouterState state) =>
       SeasonDetailsRoute(
         tvShowId: _$convertMapValue(
@@ -635,11 +615,10 @@ bool _$boolConverter(String value) {
 RouteBase get $accountMediaListRoute => GoRouteData.$route(
   path: '/accountList',
   name: 'accountList',
-
-  factory: _$AccountMediaListRoute._fromState,
+  factory: $AccountMediaListRoute._fromState,
 );
 
-mixin _$AccountMediaListRoute on GoRouteData {
+mixin $AccountMediaListRoute on GoRouteData {
   static AccountMediaListRoute _fromState(GoRouterState state) =>
       AccountMediaListRoute(
         _$convertMapValue(

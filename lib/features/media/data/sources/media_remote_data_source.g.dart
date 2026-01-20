@@ -2,11 +2,13 @@
 
 part of 'media_remote_data_source.dart';
 
+// dart format off
+
 // **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
 
 class _MediaRemoteDataSource implements MediaRemoteDataSource {
   _MediaRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger});
@@ -42,7 +44,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = MediaListResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -72,7 +74,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = MediaDetailsResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -102,7 +104,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = TvShowSeasonModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -133,7 +135,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = MediaListResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -166,7 +168,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = MessageModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -197,7 +199,7 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     try {
       _value = MessageModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      errorLogger?.logError(e, s, _options, response: _result);
       rethrow;
     }
     return _value;
@@ -230,3 +232,5 @@ class _MediaRemoteDataSource implements MediaRemoteDataSource {
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
+
+// dart format on

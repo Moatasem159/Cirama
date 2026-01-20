@@ -15,10 +15,8 @@ class WelcomeScreen extends StatelessWidget {
       create: (BuildContext context) => AuthCubit(GetIt.I.get()),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: AppTheme.systemUiOverlayStyle(context),
-        child: const SafeArea(
-          child: Scaffold(
-            body: WelcomeScreenBody(),
-          ),
+        child: Scaffold(
+          body: WelcomeScreenBody(),
         ),
       ),
     );

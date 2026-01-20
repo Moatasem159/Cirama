@@ -65,7 +65,7 @@ class _MediaSearchItem extends StatelessWidget {
             CachedNetworkImage(
               width: 80,
               height: 120,
-              imageUrl: ImageUrl.posterUrl(media.profilePath),
+              imageUrl: ImageUrl.logoUrl(media.profilePath),
               imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) =>
                   Container(
                 decoration: BoxDecoration(

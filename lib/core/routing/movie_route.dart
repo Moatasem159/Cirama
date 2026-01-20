@@ -2,7 +2,7 @@ part of 'app_router.dart';
 class MovieData extends StatefulShellBranchData {
   const MovieData();
 }
-class MovieRouteData extends GoRouteData with _$MovieRouteData {
+class MovieRouteData extends GoRouteData with $MovieRouteData {
   const MovieRouteData();
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -12,7 +12,7 @@ class MovieRouteData extends GoRouteData with _$MovieRouteData {
     );
   }
 }
-class SeeMoreMoviesRoute extends GoRouteData with _$SeeMoreMoviesRoute {
+class SeeMoreMoviesRoute extends GoRouteData with $SeeMoreMoviesRoute {
   final ListType? listType;
   final MediaListResponse $extra;
 

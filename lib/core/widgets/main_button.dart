@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/extensions/context_extension.dart';
 
 class MainButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -19,25 +18,17 @@ class MainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        fixedSize: size,
-        shape: border,
-      ),
-      child: icon == null
-          ? Text(title)
-          : Row(
-              spacing: 2,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  icon,
-                  color: context.theme.iconTheme.color,
-                ),
-                Text(title),
-              ],
-            ),
-    );
+    return icon == null
+        ? ElevatedButton(
+            onPressed: onTap,
+            style: ElevatedButton.styleFrom(fixedSize: size, shape: border),
+            child: Text(title),
+          )
+        : ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(fixedSize: size, shape: border),
+            onPressed: onTap,
+            label: Text(title),
+            icon: Icon(icon),
+          );
   }
 }

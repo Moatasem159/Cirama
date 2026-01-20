@@ -2,7 +2,7 @@ part of 'app_router.dart';
 class TvData extends StatefulShellBranchData {
   const TvData();
 }
-class TvRouteData extends GoRouteData with _$TvRouteData {
+class TvRouteData extends GoRouteData with $TvRouteData {
   const TvRouteData();
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -12,7 +12,7 @@ class TvRouteData extends GoRouteData with _$TvRouteData {
     );
   }
 }
-class SeeMoreTvShowsRoute extends GoRouteData with _$SeeMoreTvShowsRoute {
+class SeeMoreTvShowsRoute extends GoRouteData with $SeeMoreTvShowsRoute {
   final ListType? listType;
   final MediaListResponse $extra;
   const SeeMoreTvShowsRoute(this.$extra, {this.listType});
