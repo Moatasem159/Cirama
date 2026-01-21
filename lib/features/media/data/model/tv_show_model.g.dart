@@ -10,7 +10,7 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) => TvShowModel(
   numberOfSeasons: (json['number_of_seasons'] as num).toInt(),
   numberOfEpisodes: (json['number_of_episodes'] as num).toInt(),
   type: json['type'] as String,
-  lastAirDate: json['last_air_date'] as String,
+  lastAirDate: json['last_air_date'] as String?,
   episodeRunTime: (json['episode_run_time'] as List<dynamic>)
       .map((e) => (e as num).toInt())
       .toList(),
@@ -27,7 +27,7 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) => TvShowModel(
   overview: json['overview'] as String? ?? '',
   homepage: json['homepage'] as String? ?? '',
   posterPath: json['poster_path'] as String? ?? '',
-  releaseDate: readReleaseDate(json, 'releaseDate') as String,
+  releaseDate: readReleaseDate(json, 'releaseDate') as String?,
   originalName: readOriginalName(json, 'originalName') as String,
   backdropPath: json['backdrop_path'] as String? ?? '',
   originalLanguage: json['original_language'] as String,

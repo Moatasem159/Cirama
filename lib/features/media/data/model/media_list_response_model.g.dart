@@ -34,7 +34,7 @@ MediaListItemModel _$MediaListItemModelFromJson(Map<String, dynamic> json) =>
       voteCount: json['vote_count'] as num,
       voteAverage: json['vote_average'] as num,
       posterPath: json['poster_path'] as String? ?? '',
-      releaseDate: readReleaseDate(json, 'releaseDate') as String,
+      releaseDate: readReleaseDate(json, 'releaseDate') as String?,
       originalName: readOriginalName(json, 'originalName') as String,
       backdropPath: json['backdrop_path'] as String? ?? '',
       originalLanguage: json['original_language'] as String,

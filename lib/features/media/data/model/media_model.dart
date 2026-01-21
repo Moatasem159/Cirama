@@ -28,7 +28,7 @@ abstract class MediaModel {
   @JsonKey(name: "poster_path", defaultValue: '')
   final String posterPath;
   @JsonKey(readValue: readReleaseDate)
-  final String releaseDate;
+  final String ?releaseDate;
   @JsonKey(name: "backdrop_path", defaultValue: '')
   final String backdropPath;
   @JsonKey(name: "original_language")

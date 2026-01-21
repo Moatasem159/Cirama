@@ -18,7 +18,7 @@ class TvShowModel extends MediaDetailsModel {
   final int numberOfEpisodes;
   final String type;
   @JsonKey(name: "last_air_date")
-  final String lastAirDate;
+  final String ?lastAirDate;
   @JsonKey(name: "episode_run_time")
   final List<int> episodeRunTime;
   final List<TvShowSeasonModel> seasons;

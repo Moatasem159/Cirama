@@ -19,7 +19,7 @@ abstract class MovieMapper {
       homepage: model.homepage,
       posterPath: model.posterPath,
       logoPath:MediaMapper.getLogoPath(model.images.logos, model.originalLanguage),
-      releaseDate: model.releaseDate,
+      releaseDate: model.releaseDate??'',
       originalName: model.originalName,
       backdropPath: model.backdropPath,
       originalLanguage: model.originalLanguage,

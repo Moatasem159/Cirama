@@ -25,7 +25,7 @@ abstract class MediaMapper {
       voteCount: model.voteCount,
       overview: model.overview,
       posterPath: model.posterPath,
-      releaseDate: model.releaseDate,
+      releaseDate: model.releaseDate??'',
       originalName: model.originalName,
       backdropPath: model.backdropPath,
       originalLanguage: model.originalLanguage,
