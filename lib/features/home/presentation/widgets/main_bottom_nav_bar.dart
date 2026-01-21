@@ -12,7 +12,7 @@ class MainBottomNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: .only(bottom: 18),
+      padding: .only(bottom: MediaQuery.paddingOf(context).bottom),
       color: context.theme.scaffoldBackgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -24,9 +24,7 @@ class _MediaDetailsScreenBodyState extends State<MediaDetailsScreenBody> {
 
   void _handleScroll() {
     if (_scrollController.hasClients) {
-      setState(() {
-        canPop = _scrollController.position.pixels == _scrollController.position.minScrollExtent;
-      });
+      canPop = _scrollController.position.pixels == _scrollController.position.minScrollExtent;
     }
   }
 
@@ -40,7 +38,6 @@ class _MediaDetailsScreenBodyState extends State<MediaDetailsScreenBody> {
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
-      scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
       controller: _scrollController,
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
         return [

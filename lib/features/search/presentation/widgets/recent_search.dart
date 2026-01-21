@@ -11,7 +11,10 @@ class _RecentSearch extends StatelessWidget {
       builder: (BuildContext context, SearchState state) {
         if (state is LocalSearchSuccess && state.data.isNotEmpty) {
           return SliverAppBar(
-            pinned: true,
+
+            snap: true,
+            floating: true,
+            toolbarHeight: 0,
             flexibleSpace: Container(
               color: context.scaffoldBackgroundColor,
               child: Padding(
