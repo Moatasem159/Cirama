@@ -17,7 +17,7 @@ class SeasonPosterImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: CachedNetworkImage(
-          imageUrl: ImageUrl.posterUrl(image??""),
+          imageUrl: ImageUrl.logoUrl(image??""),
           imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) => SeasonPosterImageBuilder(image: imageProvider),
           placeholder: (BuildContext context, String url) => PosterPlaceholder(),
           errorWidget: (BuildContext context, String url, Object error) =>PosterErrorWidget(),
