@@ -47,17 +47,15 @@ class _MediaWebScreenState extends State<MediaWebScreen> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppTheme.systemUiOverlayStyle(context),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Cirama"),
-            centerTitle: true,
-          ),
-          body: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 500),
-            switchInCurve: Curves.easeIn,
-            child: isReady ? WebViewWidget(controller: controller) : loadingBody(progress),
-          ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Cirama"),
+          centerTitle: true,
+        ),
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 500),
+          switchInCurve: Curves.easeIn,
+          child: isReady ? WebViewWidget(controller: controller) : loadingBody(progress),
         ),
       ),
     );

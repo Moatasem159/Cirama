@@ -31,22 +31,20 @@ class ImageFullscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppTheme.systemUiOverlayStyle(context),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: IconButton(
-              icon: const Icon(Icons.download),
-              onPressed: () => save(context),
-            ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: IconButton(
+            icon: const Icon(Icons.download),
+            onPressed: () => save(context),
           ),
-          body: Hero(
-            tag: image!,
-            child: InteractiveViewer(
-              child: Center(
-                child: CachedNetworkImage(
-                  fit: BoxFit.contain,
-                  imageUrl: ImageUrl.hdUrl(image!),
-                ),
+        ),
+        body: Hero(
+          tag: image!,
+          child: InteractiveViewer(
+            child: Center(
+              child: CachedNetworkImage(
+                fit: BoxFit.contain,
+                imageUrl: ImageUrl.hdUrl(image!),
               ),
             ),
           ),

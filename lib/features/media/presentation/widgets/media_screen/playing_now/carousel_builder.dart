@@ -11,7 +11,7 @@ class _CarouselBuilder extends StatelessWidget {
       itemCount: mediaList.length,
       itemBuilder: (_, index, _) => _CarousalItem(mediaList[index]),
       options: CarouselOptions(
-        autoPlay: false,
+        autoPlay: context.enabled?false:true,
         viewportFraction: 0.8,
         height: context.screenHeight / 5.5,
         autoPlayInterval: const Duration(seconds: 3),

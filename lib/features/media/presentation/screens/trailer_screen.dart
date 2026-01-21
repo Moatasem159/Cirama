@@ -24,13 +24,11 @@ class TrailerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: AppTheme.systemUiOverlayStyle(context),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(name!, style: context.titleMedium),
-          ),
-          body: YoutubePlayerVideo(url: videoKey!, title: name!),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(name!, style: context.titleMedium),
         ),
+        body: YoutubePlayerVideo(url: videoKey!, title: name!),
       ),
     );
   }
